@@ -19,7 +19,7 @@ function AdminSidebar() {
     <div className="sidebarContainer">
       <div className="sidebarAdmin">
         <div className="sidebarAdminBox">
-          <img src={Profile} alt="" className="profilePic" />
+          <img src={Profile} alt="profilepic" className="profilePic" />
           <span>Mitthu kalyan</span>
         </div>
       </div>

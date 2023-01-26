@@ -14,7 +14,7 @@ function SingleMember() {
     <>
       <div className="memberS">
         <div className="memberDetailsS">
-          <img src={Img} alt="" />
+          <img src={Img} alt="member" />
           <span>Mitthu Kalyan</span>
         </div>
         <span>15-01-2023</span>
