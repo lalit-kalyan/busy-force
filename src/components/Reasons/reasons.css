@@ -51,7 +51,6 @@
 }
 .details-r {
   display: flex;
-
   flex-direction: column;
   gap: 1rem;
 }

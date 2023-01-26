@@ -30,7 +30,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
 }
 .the-best-add > div {
   position: absolute;
@@ -111,7 +111,7 @@
   background-color: var(--darkGrey);
   width: fit-content;
   padding: 1rem;
-  align-items: start;
+  align-items: flex-start;
   border-radius: 5px;
   position: absolute;
   right: 4rem;
