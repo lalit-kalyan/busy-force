@@ -1,0 +1,108 @@
+.memberS {
+  display: flex;
+  background: linear-gradient(
+    to right,
+    rgb(54, 54, 54),
+    rgba(78, 78, 78, 0.726)
+  );
+  border-radius: 5px;
+  align-items: center;
+}
+.memberDetailsS {
+  display: flex;
+  flex: 3;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: white;
+  padding: 0.5rem;
+}
+.memberDetailsS > img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.memberS > :nth-child(2) {
+  flex: 1;
+}
+.memberS > :nth-child(3) {
+  flex: 1;
+}
+.memberS > span {
+  color: white;
+  text-transform: uppercase;
+}
+.membersButtonS {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: center;
+  gap: 1rem;
+}
+.membersButtonS > button {
+  border: none;
+  padding: 0.7rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.membersButtonS > :nth-child(1) {
+  border: 2px solid rgb(1, 255, 1);
+  background-color: rgb(0, 65, 0);
+  color: rgb(0, 255, 0);
+  font-size: 1.1rem;
+  height: 2.5rem;
+}
+.membersButtonS > :nth-child(2) {
+  border: 2px solid rgb(1, 255, 1);
+  background-color: rgb(45, 88, 45);
+  color: rgb(0, 255, 0);
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  height: 2.5rem;
+}
+.membersButtonS > :nth-child(3) {
+  border: 2px solid rgb(145, 255, 1);
+  background-color: rgb(77, 97, 50);
+  color: rgb(145, 255, 1);
+  font-size: 1.1rem;
+}
+.membersButtonS > :nth-child(4) {
+  border: 2px solid rgb(255, 1, 1);
+  background-color: rgb(163, 106, 106);
+  color: rgb(255, 0, 0);
+  font-size: 1.1rem;
+}
+@media screen and (max-width: 768px) {
+  .memberS > :nth-child(2) {
+    display: none;
+  }
+  .memberS > :nth-child(3) {
+    display: none;
+  }
+  .memberDetailsS {
+    flex: 1;
+  }
+  .memberDetailsS > img {
+    width: 3rem;
+    height: 3rem;
+  }
+  .memberDetailsS > span {
+    font-size: small;
+  }
+  .membersButtonS {
+    flex: 1;
+  }
+  .membersButtonS > :nth-child(3) {
+    display: none;
+  }
+  .membersButtonS > :nth-child(4) {
+    display: none;
+  }
+}

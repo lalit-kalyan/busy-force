@@ -38,7 +38,6 @@ function Header() {
               onClick={() => {
                 setMenuOpen(false);
               }}
-              span={true}
               smooth={true}
             >
               Hero
@@ -50,7 +49,6 @@ function Header() {
               onClick={() => {
                 setMenuOpen(false);
               }}
-              span={true}
               smooth={true}
             >
               Programs
@@ -62,7 +60,6 @@ function Header() {
               onClick={() => {
                 setMenuOpen(false);
               }}
-              span={true}
               smooth={true}
             >
               Why Us
@@ -74,7 +71,6 @@ function Header() {
               onClick={() => {
                 setMenuOpen(false);
               }}
-              span={true}
               smooth={true}
             >
               Plans
@@ -86,7 +82,6 @@ function Header() {
               onClick={() => {
                 setMenuOpen(false);
               }}
-              span={true}
               smooth={true}
             >
               Testimonials
@@ -98,7 +93,6 @@ function Header() {
               onClick={() => {
                 setMenuOpen(false);
               }}
-              span={true}
               smooth={true}
             >
               Gallery
@@ -110,7 +104,6 @@ function Header() {
               onClick={() => {
                 setMenuOpen(false);
               }}
-              span={true}
               smooth={true}
             >
               footer

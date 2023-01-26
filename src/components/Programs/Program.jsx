@@ -12,8 +12,8 @@ function Program() {
         <span className="stroke-text">to Shape you</span>
       </div>
       <div className="programs-categories">
-        {programsData.map((p) => (
-          <div className="category">
+        {programsData.map((p , i) => (
+          <div className="category" key={i} >
             {p.image}
             <span>{p.heading}</span>
             <span>{p.details}</span>

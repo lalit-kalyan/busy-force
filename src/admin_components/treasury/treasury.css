@@ -1,0 +1,76 @@
+.treasury {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+.treasury-l {
+  flex: 1;
+}
+
+.treasury-l > table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+.treasury-l > table > td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  background: orange;
+  color: white;
+}
+.treasury-l > table > thead > tr > th {
+  padding: 10px;
+  text-align: center;
+}
+.treasury-l > table > tbody > tr > td,
+th {
+  padding: 10px;
+  text-align: center;
+}
+.treasury-l > table > tbody > tr:nth-child(even) {
+  background-color: transparent;
+  color: white;
+}
+.treasury-l > table > tbody > tr:nth-child(odd) {
+  background: gray;
+  color: white;
+}
+.treasury-r {
+  flex: 1;
+}
+.treasury-r > table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+.treasury-r > table > td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+}
+.treasury-r > table > tbody > tr > td,
+th {
+  padding: 10px;
+  text-align: center;
+}
+.treasury-r > table > tbody > tr:nth-child(even) {
+  background-color: transparent;
+  color: white;
+}
+.treasury-r > table > tbody > tr:nth-child(odd) {
+  background: gray;
+  color: white;
+}
+.treasury-title {
+  color: orange;
+  font-size: 1.6rem;
+  margin: 0.5rem;
+  font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  .treasury {
+    flex-direction: column;
+  }
+}

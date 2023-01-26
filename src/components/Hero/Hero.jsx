@@ -6,6 +6,7 @@ import hero_image_back from "../../assets/hero_image_back.png";
 import Heart from "../../assets/heart.png";
 import Calories from "../../assets/calories.png";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 function Hero() {
   const transition = { typeof: "spring", duration: 3 };
@@ -15,10 +16,14 @@ function Hero() {
       <div className="blur hero-blur"></div>
       <div className="hero-l">
         <Header />
-        <button className="pannel">ADMIN PANNEL</button>
+        <button className="pannel">
+          <Link to="/admin" className="link">
+            ADMIN PANNEL
+          </Link>
+        </button>
         <div className="the-best-add">
           <motion.div
-            initial={{ left: mobile ? "120px": "170px" }}
+            initial={{ left: mobile ? "120px" : "170px" }}
             whileInView={{ left: "8px" }}
             transition={{ ...transition, type: "tween" }}
           ></motion.div>
@@ -61,7 +66,11 @@ function Hero() {
       </div>
 
       <div className="hero-r">
-        <button className="btn">Join Now</button>
+        <button className="btn">
+          <Link to="/register" className="link">
+            Join Now
+          </Link>
+        </button>
         <motion.div
           initial={{ right: "-1rem" }}
           whileInView={{ right: "4rem" }}

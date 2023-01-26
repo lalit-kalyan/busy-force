@@ -1,0 +1,53 @@
+.admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.strip {
+  height: 12rem;
+  width: 100vw;
+  object-fit: cover;
+}
+.admin > :nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--planCard);
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+}
+.admin > :nth-child(2) > span {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.adminMain {
+  width: 100%;
+
+  display: flex;
+}
+.adminMain-l {
+  flex: 2;
+  min-height: 60vh;
+}
+.adminMain-r {
+  flex: 10;
+  min-height: 60vh;
+  overflow: scroll;
+}
+@media screen and (max-width: 768px) {
+  .admin > :nth-child(2) > span {
+    font-size: x-large;
+  }
+  .adminMain {
+    flex-direction: column;
+  }
+  .adminMain-l {
+    flex: 0;
+    min-height: 2rem;
+  }
+  .adminMain-r {
+    min-height: 70vh;
+    flex: none;
+  }
+}

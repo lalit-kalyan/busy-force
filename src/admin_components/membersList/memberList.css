@@ -1,0 +1,89 @@
+.memberList {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.memberListbar {
+  display: flex;
+  align-items: center;
+  background-color: gray;
+  height: 3rem;
+  justify-content: space-around;
+}
+.memberListbar > :nth-child(1) > input {
+  width: 12rem;
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.memberListbar > :nth-child(1) > button {
+  height: 2rem;
+  border: none;
+  background-color: rgb(88, 88, 88);
+  color: white;
+  border-radius: 5px;
+}
+.memberListbar > :nth-child(2) > button {
+  padding: 0.5rem;
+  background-color: orange;
+  border: none;
+  border-radius: 5px;
+  color: rgb(90, 90, 90);
+  font-weight: bold;
+}
+
+.member {
+  display: flex;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+  background: var(--planCard);
+  padding: 0.8rem;
+}
+.memberDetails {
+  flex: 3;
+}
+.member > :nth-child(2) {
+  flex: 1;
+}
+.member > :nth-child(3) {
+  flex: 1;
+}
+.membersButton {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.allMembers {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .memberList {
+    padding: 0;
+  }
+  .member {
+    font-size: 0.7rem;
+    color: black;
+  }
+  .memberDetails {
+    display: none;
+  }
+  .member > :nth-child(2) {
+    display: none;
+  }
+  .member > :nth-child(3) {
+    flex: 2;
+  }
+  .membersButton {
+    flex: 3;
+  }
+  .memberListbar > :nth-child(1) > input {
+    width: 10rem;
+  }
+}
