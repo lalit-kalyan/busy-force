@@ -19,7 +19,7 @@ function Program() {
             <span>{p.details}</span>
             <div className="joinNow">
                 <span>Join Now</span>
-                <img src={RightArrow} alt="" />
+                <img src={RightArrow} alt="arrow" />
             </div>
           </div>
         ))}

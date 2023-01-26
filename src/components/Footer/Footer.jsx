@@ -3,7 +3,7 @@ import "./footer.css";
 import Github from "../../assets/github.png";
 import Instagram from "../../assets/instagram.png";
 import LinkedIn from "../../assets/linkedin.png";
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/logo1.png";
 
 function Footer() {
   return (
@@ -11,13 +11,13 @@ function Footer() {
       <hr />
       <div className="footer">
         <div className="social-link" >
-          <img src={Github} alt="" />
-          <img src={Instagram} alt="" />
-          <img src={LinkedIn} alt="" />
+          <img src={Github} alt="github" />
+          <img src={Instagram} alt="instagram" />
+          <img src={LinkedIn} alt="linkedin" />
         </div>
       </div>
       <div className="logo-f">
-        <img src={Logo} alt="" />
+        <img src={Logo} alt="productLogo" />
       </div>
       <div className="blur footer-blur"></div>
       <div className="blur footer-blur-2"></div>

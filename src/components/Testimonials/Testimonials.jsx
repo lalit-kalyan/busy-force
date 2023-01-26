@@ -33,7 +33,7 @@ function Testimonials() {
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ ...transition, duration: 2  }}
+          transition={{ ...transition, duration: 2 }}
         ></motion.div>
         <motion.img
           key={selected}
@@ -47,7 +47,7 @@ function Testimonials() {
         <div className="arrows">
           <img
             src={rightArrow}
-            alt=""
+            alt="rightarrow"
             onClick={() => {
               selected === 0
                 ? setSelected(tLength - 1)
@@ -56,7 +56,7 @@ function Testimonials() {
           />
           <img
             src={leftArrow}
-            alt=""
+            alt="leftarrow"
             onClick={() => {
               selected === tLength - 1
                 ? setSelected(0)

@@ -4,7 +4,6 @@ import Img from "../../assets/t-image2.jpg";
 import {
   BsChatLeftText,
   BsPersonCheck,
-  BsPersonX,
   BsPencilSquare,
   BsTrash,
 } from "react-icons/bs";

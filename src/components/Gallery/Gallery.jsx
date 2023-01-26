@@ -11,49 +11,7 @@ function Gallery() {
       <div className="cards-container">
         {/* CARD START */}
         <div className="gallery-card">
-          <img src={Pic} alt="" />
-          <span>this is my image</span>
-        </div>
-        {/* CARD END*/}
-        {/* CARD START */}
-        <div className="gallery-card">
-          <img src={Pic} alt="" />
-          <span>this is my image</span>
-        </div>
-        {/* CARD END*/}
-        {/* CARD START */}
-        <div className="gallery-card">
-          <img src={Pic} alt="" />
-          <span>this is my image</span>
-        </div>
-        {/* CARD END*/}
-        {/* CARD START */}
-        <div className="gallery-card">
-          <img src={Pic} alt="" />
-          <span>this is my image</span>
-        </div>
-        {/* CARD END*/}
-        {/* CARD START */}
-        <div className="gallery-card">
-          <img src={Pic} alt="" />
-          <span>this is my image</span>
-        </div>
-        {/* CARD END*/}
-        {/* CARD START */}
-        <div className="gallery-card">
-          <img src={Pic} alt="" />
-          <span>this is my image</span>
-        </div>
-        {/* CARD END*/}
-        {/* CARD START */}
-        <div className="gallery-card">
-          <img src={Pic} alt="" />
-          <span>this is my image</span>
-        </div>
-        {/* CARD END*/}
-        {/* CARD START */}
-        <div className="gallery-card">
-          <img src={Pic} alt="" />
+          <img src={Pic} alt="pic" />
           <span>this is my image</span>
         </div>
         {/* CARD END*/}

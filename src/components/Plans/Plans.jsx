@@ -2,12 +2,13 @@ import React from "react";
 import "./plans.css";
 import { plansData } from "../../data/plansData";
 import WhiteTick from "../../assets/whiteTick.png";
+import { BsArrowRight } from "react-icons/bs";
 
 function Plans() {
   return (
     <div className="plans-container">
-    <div className="blur plans-blur"></div>
-    <div className="blur plans-blur-2"></div>
+      <div className="blur plans-blur"></div>
+      <div className="blur plans-blur-2"></div>
 
       <div className="programs-header">
         <span className="stroke-text">READY TO START</span>
@@ -24,13 +25,22 @@ function Plans() {
             <div className="features">
               {plan.features.map((f, i) => (
                 <div className="feature" key={i}>
-                  <img src={WhiteTick} alt="" />
+                  <img src={WhiteTick} alt="tick" />
                   <span>{f}</span>
                 </div>
               ))}
             </div>
             <div>
-              <span>See more benefits -></span>
+              <span
+                style={{
+                  display: "flex ",
+                  alineItem: "center",
+                  gap: ".5rem",
+                  justifyContent: "center",
+                }}
+              >
+                See more benefits <BsArrowRight />
+              </span>
             </div>
             <button className="btn">Join Now</button>
           </div>

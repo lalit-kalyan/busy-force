@@ -13,10 +13,10 @@ function Reasons() {
   return (
     <div className="reasons" id="reasons">
       <div className="left-r">
-        <img src={image1} alt="" />
-        <img src={image2} alt="" />
-        <img src={image3} alt="" />
-        <img src={image4} alt="" />
+        <img src={image1} alt="image1" />
+        <img src={image2} alt="image2" />
+        <img src={image3} alt="image3" />
+        <img src={image4} alt="image4" />
       </div>
       <div className="right-r">
         <span>Some reasons</span>
@@ -27,18 +27,18 @@ function Reasons() {
 
         <div className="details-r">
           <div>
-            <img src={tick} alt="" /> <span> EXPERT COACHS</span>
+            <img src={tick} alt="tick" /> <span> EXPERT COACHS</span>
           </div>
           <div>
-            <img src={tick} alt="" />{" "}
+            <img src={tick} alt="tick" />
             <span>TRAIN SMARTER AND FASTER THAN BEFORE</span>
           </div>
           <div>
-            <img src={tick} alt="" />{" "}
+            <img src={tick} alt="tick" />
             <span> 1 FREE PROGRAM FOR NEW MEMBER </span>
           </div>
           <div>
-            <img src={tick} alt="" /> <span>RELIABLE PARTNERS</span>
+            <img src={tick} alt="tick" /> <span>RELIABLE PARTNERS</span>
           </div>
         </div>
 
@@ -46,9 +46,9 @@ function Reasons() {
           OUR PARTNERS
         </span>
         <div className="partners">
-          <img src={nb} alt="" />
-          <img src={nike} alt="" />
-          <img src={adidas} alt="" />
+          <img src={nb} alt="nb" />
+          <img src={nike} alt="nike" />
+          <img src={adidas} alt="adidas" />
         </div>
       </div>
     </div>
