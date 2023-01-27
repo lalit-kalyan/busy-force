@@ -71,7 +71,6 @@
   width: 100%;
   text-align: center;
   padding: 10px;
-  z-index: 10;
 }
 .formContainer {
   display: flex;
@@ -119,4 +118,25 @@
 }
 
 @media screen and (max-width: 768px) {
+  .generalForm {
+    height: 38rem;
+    width: 100vw;
+    padding: 5px;
+  }
+  .formContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-box-l {
+    width: 100%;
+  }
+  .form-box-r {
+    width: 100%;
+    padding: 0.5rem;
+  }
+  .form-box-l > img {
+    width: 100%;
+    height: 10rem;
+    object-fit: cover;
+  }
 }

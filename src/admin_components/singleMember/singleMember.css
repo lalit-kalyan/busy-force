@@ -99,8 +99,20 @@
   .membersButtonS {
     flex: 1;
   }
-  .membersButtonS > :nth-child(3) {
+  .membersButtonS > :nth-child(1) {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+  .membersButtonS > :nth-child(2) {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+  .membersButtonS > :nth-child(2) > span {
     display: none;
+  }
+  .membersButtonS > :nth-child(3) {
+    width: 1.9rem;
+    height: 1.9rem;
   }
   .membersButtonS > :nth-child(4) {
     display: none;

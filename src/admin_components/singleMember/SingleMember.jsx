@@ -26,7 +26,7 @@ function SingleMember() {
             </i>
           </button>
           <button>
-            Activate
+            <span> Activate</span>
             <i>
               <BsPersonCheck />
             </i>
