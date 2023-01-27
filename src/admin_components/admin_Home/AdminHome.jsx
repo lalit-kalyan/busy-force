@@ -17,10 +17,10 @@ function AdminHome() {
       </div>
       <div className="adminMain">
         <div className="adminMain-l">
-            <AdminSidebar/>
+          <AdminSidebar />
         </div>
         <div className="adminMain-r">
-          <Outlet/>
+          <Outlet />
         </div>
       </div>
     </div>
