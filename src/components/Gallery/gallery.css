@@ -40,3 +40,19 @@
   color: white;
   margin: 5px;
 }
+@media screen and (max-width: 768px) {
+  .gallery-card {
+    width: 6rem;
+    height: 10rem;
+  }
+  .gallery-card > span {
+    font-size: 9px;
+  }
+  .cards-container {
+    padding: 5px;
+    gap: 15px;
+  }
+  .gallery-card > img {
+    height: 88%;
+  }
+}

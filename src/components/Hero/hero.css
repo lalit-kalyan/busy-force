@@ -179,7 +179,8 @@
   .pannel {
     margin-bottom: 0;
     align-self: center;
-    margin-top: -2rem;
+    margin-top: -1rem;
+    margin-left: -13rem;
   }
   .the-best-add {
     margin: 0;
