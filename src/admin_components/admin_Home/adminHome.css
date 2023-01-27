@@ -4,7 +4,7 @@
   align-items: center;
 }
 .strip {
-  height: 12rem;
+  height: 10rem;
   width: 100vw;
   object-fit: cover;
 }
@@ -15,7 +15,7 @@
   background: var(--planCard);
   gap: 1rem;
   width: 100%;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 .admin > :nth-child(2) > span {
   font-size: 3rem;
