@@ -3,6 +3,7 @@ import "./plans.css";
 import { plansData } from "../../data/plansData";
 import WhiteTick from "../../assets/whiteTick.png";
 import { BsArrowRight } from "react-icons/bs";
+import { BiRupee } from "react-icons/bi";
 
 function Plans() {
   return (
@@ -21,7 +22,12 @@ function Plans() {
           <div className="plan" key={i}>
             {plan.icon}
             <span>{plan.name}</span>
-            <span> $ {plan.price}</span>
+            <span>
+              <span className="rupee" >
+                <BiRupee />
+              </span>
+              {plan.price}
+            </span>
             <div className="features">
               {plan.features.map((f, i) => (
                 <div className="feature" key={i}>

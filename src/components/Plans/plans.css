@@ -39,6 +39,16 @@
 .plan > :nth-child(3) {
   font-size: 3rem;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.rupee {
+  padding: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  margin-right: -5px;
 }
 .plan > :nth-child(5) {
   font-size: 0.8rem;
@@ -68,10 +78,10 @@
   right: 0rem;
 }
 @media screen and (max-width: 768px) {
-  .plans{
+  .plans {
     flex-direction: column;
   }
-  .plans>:nth-child(2){
+  .plans > :nth-child(2) {
     transform: none;
   }
 }
