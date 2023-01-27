@@ -43,3 +43,11 @@
 .logo-f {
   margin-bottom: 4rem;
 }
+.logo-f > img {
+  width: 20rem;
+}
+@media screen and (max-width: 768px) {
+  .logo-f > img {
+    width: 15rem;
+  }
+}
