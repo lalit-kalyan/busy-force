@@ -5,3 +5,10 @@
   align-items: center;
   justify-content: center;
 }
+.loginplans {
+  background-color: orange;
+  padding: 8px;
+  display: flex;
+  gap: 10px;
+  border-radius: 5px;
+}

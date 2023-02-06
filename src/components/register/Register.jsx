@@ -20,9 +20,15 @@ function Register() {
             <input type="text" placeholder="Name" />
             <input type="text" placeholder="Mobile No." />
             <input type="text" placeholder="Joining Date" />
-            <input type="text" placeholder="xxxx" />
-            <input type="text" placeholder="xxxx" />
-            <input type="text" placeholder="xxxx" />
+            <div className="loginplans">
+              <label>Select a Plan</label>
+              <select name="plans">
+                <option value="basic">800</option>
+                <option value="pre">1000</option>
+                <option value="gold">6000</option>
+                <option value="diomend">10000</option>
+              </select>
+            </div>
             <button>Join</button>
             <Link to="/login">
               <span>if you have already register? login</span>
