@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./register.css";
 import { Link } from "react-router-dom";
 import { publicRequest } from "../../requestMethods";
-import axios from "axios";
-import { calcLength } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -11,11 +10,10 @@ function Register() {
   const [email, setEmail] = useState("");
   const [joining, setJoining] = useState("");
   const [plan, setPlan] = useState("");
-  const [pic, setPic] = useState(null);
-  const [photo, setPhoto] = useState(null);
+  const [pic, setPic] = useState("");
+  let navigate = useNavigate();
 
-  const photoUpload = () => {
-    console.log(photo.size);
+  const photoUpload = (photo) => {
     if (photo) {
       const data = new FormData();
       data.append("file", photo);
@@ -41,9 +39,32 @@ function Register() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    photoUpload();
+
     try {
-    } catch (error) {}
+      const newMember = {
+        username,
+        email,
+        phone,
+        pic,
+        joining,
+        plan,
+      };
+
+      await publicRequest.post("/members", newMember);
+      alert("Your account has been created......!please login");
+      setUsername("");
+      setEmail("");
+      setPhone("");
+      setPic("");
+      setJoining("");
+      setPlan("");
+      navigate("/login");
+    } catch (error) {
+      if (error.response?.data) {
+        console.log(error.response?.data);
+        alert(error.response?.data);
+      }
+    }
   };
 
   return (
@@ -60,6 +81,12 @@ function Register() {
             />
           </div>
           <div className="form-box-r">
+            <input
+              type="file"
+              className="fileinput"
+              accept=".png , .jpeg , .jpg"
+              onChange={(e) => photoUpload(e.target.files[0])}
+            />
             <input
               type="text"
               placeholder="Name"
@@ -80,12 +107,7 @@ function Register() {
               placeholder="Joining Date"
               onChange={(e) => setJoining(e.target.value)}
             />
-            <input
-              type="file"
-              className="fileinput"
-              accept=".png , .jpeg , .jpg"
-              onChange={(e) => setPhoto(e.target.files[0])}
-            />
+
             <div className="loginplans">
               <label>Select a Plan</label>
               <select name="plans" onChange={(e) => setPlan(e.target.value)}>

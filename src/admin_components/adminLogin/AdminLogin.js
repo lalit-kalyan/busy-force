@@ -1,35 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./login.css";
-import { login } from "../../redux/memberApiCalls";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 
-
-function Login() {
-  const dispatch = useDispatch();
-  let navigate = useNavigate();
-  const { isFetching, error } = useSelector((state) => state.member);
-
+function AdminLogin() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [loginError, setLoginError] = useState(false);
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    if ((email, phone)) {
-      login(dispatch, { email, phone });
-      navigate("/");
-    } else {
-      setLoginError(true);
-    }
-  };
-
+  const handleLogin = () => {};
   return (
     <div className="login">
       <div className="generalForm">
         <div className="form-title">
-          <span>LOGIN</span>
+          <span>ADMIN LOGIN</span>
         </div>
 
         <div className="formContainer  ">
@@ -61,4 +42,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default AdminLogin;

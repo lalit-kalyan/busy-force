@@ -7,20 +7,39 @@ import Heart from "../../assets/heart.png";
 import Calories from "../../assets/calories.png";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logoutMember } from "../../redux/memberApiCalls";
 
 function Hero() {
   const transition = { typeof: "spring", duration: 3 };
   const mobile = window.innerWidth <= 768 ? true : false;
+  const dispatch = useDispatch();
+  const member = useSelector((state) => state.member.currentMember);
+  const admin = useSelector((state) => state.member.currentAdmin);
+
+  const handleLogout = () => {
+    console.log("logout");
+    logoutMember(dispatch);
+  };
   return (
     <div className="hero">
       <div className="blur hero-blur"></div>
       <div className="hero-l">
         <Header />
-        <button className="pannel">
-          <Link to="/admin" className="link">
-            ADMIN PANNEL
-          </Link>
-        </button>
+        {admin?.isAdmin ? (
+          <button className="pannel">
+            <Link to="/admin" className="link">
+              ADMIN PANNEL
+            </Link>
+          </button>
+        ) : (
+          <button className="pannel">
+            <Link to="/adminLogin" className="link">
+              ADMIN LOGIN
+            </Link>
+          </button>
+        )}
+
         <div className="the-best-add">
           <motion.div
             initial={{ left: mobile ? "120px" : "170px" }}
@@ -66,11 +85,27 @@ function Hero() {
       </div>
 
       <div className="hero-r">
-        <button className="btn">
-          <Link to="/register" className="link">
-            Join Now
-          </Link>
-        </button>
+        {!admin ? (
+          <div
+            className="btn"
+            style={{ boxSizing: "border-box", padding: "1px" }}
+          >
+            {member ? (
+              <button className="btn" onClick={handleLogout}>
+                Logout
+              </button>
+            ) : (
+              <button className="btn">
+                <Link to="/register" className="link">
+                  Join Now
+                </Link>
+              </button>
+            )}
+          </div>
+        ) : (
+          <></>
+        )}
+
         <motion.div
           initial={{ right: "-1rem" }}
           whileInView={{ right: "4rem" }}
