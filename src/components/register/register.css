@@ -7,8 +7,20 @@
 }
 .loginplans {
   background-color: orange;
-  padding: 8px;
+  padding: 5px 0;
   display: flex;
   gap: 10px;
   border-radius: 5px;
+  width: 100%;
+}
+.loginplans > label {
+  margin-left: 10px;
+}
+.loginplans > select {
+  padding: 5px;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  background-color: rgb(78, 78, 78);
+  color: white;
 }
