@@ -2,18 +2,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./login.css";
 import { login } from "../../redux/memberApiCalls";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
 
 function Login() {
   const dispatch = useDispatch();
   let navigate = useNavigate();
-  const { isFetching, error } = useSelector((state) => state.member);
 
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [loginError, setLoginError] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -21,7 +18,8 @@ function Login() {
       login(dispatch, { email, phone });
       navigate("/");
     } else {
-      setLoginError(true);
+      console.log("email , phone is required to login");
+      alert("email , phone is required to login");
     }
   };
 

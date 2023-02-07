@@ -1,8 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./adminRegister.css";
+import { IMAGE_URL } from "../../requestMethods";
+import { publicRequest } from "../../requestMethods";
+import { useNavigate } from "react-router-dom";
 
 function AdminRegister() {
+  let navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [pic, setPic] = useState("");
+
+  //*..IMAGE_UPLOAD.....
+  const photoUpload = (photo) => {
+    if (photo) {
+      const data = new FormData();
+      data.append("file", photo);
+      data.append("upload_preset", "busy_force");
+      data.append("cloude_name", "kalyanmitthu");
+      //!..........cloudinary start............................
+      fetch(IMAGE_URL, {
+        method: "post",
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setPic(data.url.toString());
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      //!..........cloudinary end...............................
+    } else {
+      console.log("select a photo first.........!");
+      alert("select a photo first.........!");
+    }
+  };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    try {
+      const newAdmin = {
+        username,
+        email,
+        phone,
+        pic,
+      };
+      //console.log(newAdmin);
+
+      await publicRequest.post("/admin", newAdmin);
+      alert("Your account has been created......!please login");
+      setUsername("");
+      setEmail("");
+      setPhone("");
+      setPic("");
+      navigate("/adminLogin");
+    } catch (error) {
+      if (error.response?.data) {
+        console.log(error.response?.data);
+        alert(error.response?.data);
+      }
+    }
+  };
+
   return (
     <div className="adminRegister">
       <div className="generalForm">
@@ -17,13 +79,39 @@ function AdminRegister() {
             />
           </div>
           <div className="form-box-r">
-            <input type="text" placeholder="Name" />
-            <input type="text" placeholder="Mobile No." />
-            <input type="text" placeholder="Joining Date" />
-            <input type="text" placeholder="xxxx" />
-            <input type="text" placeholder="xxxx" />
-            <input type="text" placeholder="xxxx" />
-            <button>Join</button>
+            <div
+              style={{
+                display: "flex",
+                gap: "10px",
+                alignItems: "center",
+                backgroundColor: "orange",
+                padding: "8px",
+                borderRadius: "5px",
+              }}
+            >
+              <label> Select a photo</label>
+              <input
+                type="file"
+                accept=".png , .jpeg , .jpg"
+                onChange={(e) => photoUpload(e.target.files[0])}
+              />
+            </div>
+            <input
+              type="text"
+              placeholder="Name"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type="email"
+              placeholder="gym@gmail.com"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="number"
+              placeholder="9802980200"
+              onChange={(e) => setPhone(e.target.value)}
+            />
+            <button onClick={handleRegister}>Register</button>
             <Link to="/login">
               <span>if you have already register? login</span>
             </Link>

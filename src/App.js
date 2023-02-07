@@ -14,7 +14,8 @@ import AdminLogin from "./admin_components/adminLogin/AdminLogin";
 
 function App() {
   const member = useSelector((state) => state.member.currentMember);
-  const admin = useSelector((state) => state.member.currentAdmin);
+  const admin = useSelector((state) => state.admin.currentAdmin);
+  //console.log(admin);
 
   return (
     <div className="App">
@@ -28,14 +29,17 @@ function App() {
           path="/login"
           element={!member ? <Login /> : <Navigate to="/" replace />}
         />
-        <Route path="/admin" element={<AdminHome />}>
+        <Route
+          path="/admin"
+          element={admin?.isAdmin ? <AdminHome /> : <Navigate to="/" replace />}
+        >
           <Route path="member-list" element={<MemberList />} />
           <Route path="treasury" element={<Treasury />} />
-          <Route path="adminRegister" element={<AdminRegister />} />
           <Route path="adminEdit" element={<EditAdmin />} />
           <Route path="editMember" element={<EditMember />} />
         </Route>
         <Route path="adminLogin" element={<AdminLogin />} />
+        <Route path="adminRegister" element={<AdminRegister />} />
       </Routes>
     </div>
   );

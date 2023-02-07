@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import memberReducer from "./memberSlice";
-import adminReducer from "./adminSclice";
+import adminReducer from "./adminSlice";
 import {
   persistStore,
   persistReducer,

@@ -15,7 +15,7 @@ function Hero() {
   const mobile = window.innerWidth <= 768 ? true : false;
   const dispatch = useDispatch();
   const member = useSelector((state) => state.member.currentMember);
-  const admin = useSelector((state) => state.member.currentAdmin);
+  const admin = useSelector((state) => state.admin.currentAdmin);
 
   const handleLogout = () => {
     console.log("logout");
