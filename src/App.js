@@ -10,6 +10,7 @@ import AdminRegister from "./admin_components/adminRegister/AdminRegister";
 import EditAdmin from "./admin_components/editAdmin/EditAdmin";
 import EditMember from "./admin_components/editMember/EditMember";
 import { useSelector } from "react-redux";
+import AdminLogin from "./admin_components/adminLogin/AdminLogin";
 
 function App() {
   const member = useSelector((state) => state.member.currentMember);
@@ -34,6 +35,7 @@ function App() {
           <Route path="adminEdit" element={<EditAdmin />} />
           <Route path="editMember" element={<EditMember />} />
         </Route>
+        <Route path="adminLogin" element={<AdminLogin />} />
       </Routes>
     </div>
   );
