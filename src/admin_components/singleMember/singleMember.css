@@ -3,14 +3,14 @@
   background: linear-gradient(
     to right,
     rgb(54, 54, 54),
-    rgba(78, 78, 78, 0.726)
+    rgba(131, 161, 111, 0.349)
   );
   border-radius: 5px;
   align-items: center;
 }
 .memberDetailsS {
   display: flex;
-  flex: 3;
+  flex: 2;
   align-items: center;
   gap: 1rem;
   font-size: 1.2rem;
@@ -18,16 +18,27 @@
   color: white;
   padding: 0.5rem;
 }
-.memberDetailsS > img {
+.planId {
+  flex: 1;
+  height: 100%;
+}
+.planId > button {
+  padding: 10px;
+  border-radius: 5px;
+  width: 7rem;
+  text-transform: uppercase;
+  border: none;
+}
+.memberDetailsS > a > img {
   width: 4rem;
   height: 4rem;
   object-fit: cover;
   border-radius: 50%;
 }
-.memberS > :nth-child(2) {
+.memberS > :nth-child(3) {
   flex: 1;
 }
-.memberS > :nth-child(3) {
+.memberS > :nth-child(4) {
   flex: 1;
 }
 .memberS > span {
@@ -58,7 +69,7 @@
   font-size: 1.1rem;
   height: 2.5rem;
 }
-.membersButtonS > :nth-child(2) {
+.activeBtn {
   border: 2px solid rgb(1, 255, 1);
   background-color: rgb(45, 88, 45);
   color: rgb(0, 255, 0);
@@ -80,10 +91,10 @@
   font-size: 1.1rem;
 }
 @media screen and (max-width: 768px) {
-  .memberS > :nth-child(2) {
+  .memberS > :nth-child(3) {
     display: none;
   }
-  .memberS > :nth-child(3) {
+  .memberS > :nth-child(4) {
     display: none;
   }
   .memberDetailsS {
@@ -117,4 +128,32 @@
   .membersButtonS > :nth-child(4) {
     display: none;
   }
+}
+.notActive {
+  background: linear-gradient(
+    to right,
+    rgb(54, 54, 54),
+    rgba(255, 16, 16, 0.76)
+  );
+}
+.deactiveBtn {
+  background-color: rgb(0, 155, 0);
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  height: 2.5rem;
+  color: white;
+}
+.silver {
+  background-color: silver;
+}
+.gold {
+  background-color: gold;
+}
+.platinum {
+  background-color: rgb(118, 250, 255);
+}
+.diamond {
+  background-color: rgb(178, 95, 255);
+  color: white;
 }

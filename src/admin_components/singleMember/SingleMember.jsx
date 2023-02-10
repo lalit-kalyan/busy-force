@@ -1,41 +1,58 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./singleMember.css";
-import Img from "../../assets/t-image2.jpg";
-import {
-  BsChatLeftText,
-  BsPersonCheck,
-  BsPencilSquare,
-  BsTrash,
-} from "react-icons/bs";
+import { BsChatLeftText, BsPersonCheck, BsTrash } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import Moment from "react-moment";
+import { publicRequest } from "../../requestMethods";
 
-function SingleMember() {
+function SingleMember({ member, activteMember }) {
+  useEffect(() => {
+    const deativate = async () => {
+      try {
+        publicRequest.put(`/members/deactivate/${member._id}`);
+      } catch (error) {}
+    };
+    deativate();
+  }, [member]);
+
   return (
     <>
-      <div className="memberS">
+      <div className={member.isActive ? "memberS" : "memberS notActive"}>
         <div className="memberDetailsS">
-          <img src={Img} alt="member" />
-          <span>Mitthu Kalyan</span>
+          <Link to="/admin/details/1234">
+            <img src={member.pic} alt="member" />
+          </Link>
+          <span>{member.username} </span>
         </div>
-        <span>15-01-2023</span>
-        <span>$-1000</span>
+        <div className="planId">
+          <button className={`${member.planId}`}>{member.planId}</button>
+        </div>
+        <span>
+          <Moment format="YYYY-MM-DD">{member.joining}</Moment>
+        </span>
+        <span>
+          <Moment format="YYYY-MM-DD">{member.lastActive}</Moment>
+        </span>
+        <span>{member.plan}</span>
         <div className="membersButtonS">
           <button>
             <i>
               <BsChatLeftText />
             </i>
           </button>
-          <button>
-            <span> Activate</span>
-            <i>
-              <BsPersonCheck />
-            </i>
-          </button>
-          <button>
-            <Link to="/admin/editMember" className="link">
-              <BsPencilSquare />
-            </Link>
-          </button>
+
+          {member.isActive ? (
+            <button className="deactiveBtn">
+              <span onClick={() => activteMember(member._id)}>Activated</span>
+            </button>
+          ) : (
+            <button className="activeBtn">
+              <span onClick={() => activteMember(member._id)}> Activate</span>
+              <i>
+                <BsPersonCheck />
+              </i>
+            </button>
+          )}
           <button>
             <BsTrash />
           </button>

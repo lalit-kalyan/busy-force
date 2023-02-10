@@ -5,6 +5,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: url("../../assets/bf3.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .footer-contaioner > hr {
   border: 1px solid var(--lightgray);
@@ -20,7 +24,12 @@
 }
 .social-link {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 4rem;
+  background-color: rgba(116, 116, 116, 0.795);
+  padding: 2rem;
+  width: 20rem;
 }
 .social-link > img {
   width: 2rem;
@@ -42,6 +51,7 @@
 }
 .logo-f {
   margin-bottom: 4rem;
+  margin-top: 1rem;
 }
 .logo-f > img {
   width: 20rem;

@@ -14,8 +14,8 @@ function Home() {
       <Program />
       <Reasons />
       <Plans />
-      <Testimonials />
       <Gallery/>
+      <Testimonials />
       <Footer />
     </div>
   );

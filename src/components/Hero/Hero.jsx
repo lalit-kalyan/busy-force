@@ -51,14 +51,15 @@ function Hero() {
         {/* hero Headeing */}
         <div className="hero-text">
           <div>
-            <span className="stroke-text ">Shape</span> YOUR<span></span>
+            <span className="stroke-text ">Shape</span>
+            <span className="textTitile">YOUR</span>
           </div>
 
           <div>
-            <span>Ideal body</span>
+            <span className="textTitile">Ideal body</span>
           </div>
           <div>
-            <span>
+            <span className="quote" >
               in here we will help you to shape and live up your life to fullest
             </span>
           </div>

@@ -11,6 +11,9 @@ import EditAdmin from "./admin_components/editAdmin/EditAdmin";
 import EditMember from "./admin_components/editMember/EditMember";
 import { useSelector } from "react-redux";
 import AdminLogin from "./admin_components/adminLogin/AdminLogin";
+import ImageUpload from "./admin_components/imageUpload/ImageUpload";
+import MemberDetails from "./admin_components/memberDetails/MemberDetails";
+import Publish from "./admin_components/publish/Publish";
 
 function App() {
   const member = useSelector((state) => state.member.currentMember);
@@ -37,6 +40,9 @@ function App() {
           <Route path="treasury" element={<Treasury />} />
           <Route path="adminEdit" element={<EditAdmin />} />
           <Route path="editMember" element={<EditMember />} />
+          <Route path="upload" element={<ImageUpload />} />
+          <Route path="details/:id" element={<MemberDetails />} />
+          <Route path="publish" element={<Publish />} />
         </Route>
         <Route path="adminLogin" element={<AdminLogin />} />
         <Route path="adminRegister" element={<AdminRegister />} />

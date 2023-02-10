@@ -1,0 +1,14 @@
+.upload {
+  align-self: center;
+  position: absolute;
+  top: 4rem;
+  left: 23%;
+}
+.upload-r {
+  margin-top: 4rem;
+}
+
+.preview {
+  width: 10rem;
+  height: 10rem;
+}

@@ -1,13 +1,25 @@
 import axios from "axios";
+import { json } from "react-router-dom";
 const BASE_URL = "http://localhost:5000/api";
 
+export const IMAGE_URL =
+  "https://api.cloudinary.com/v1_1/kalyanmitthu/image/upload";
 
-export const IMAGE_URL = "https://api.cloudinary.com/v1_1/kalyanmitthu/image/upload";
+let admin;
+let TOKEN;
+admin = JSON.parse(localStorage.getItem("persist:root"))?.admin;
+
+if (admin) {
+  const currentAdmin = JSON.parse(admin)?.currentAdmin;
+  TOKEN = currentAdmin?.token;
+}
+
+// const currentAdmin = JSON.parse(admin)?.currentAdmin;
 
 export const publicRequest = axios.create({
   baseURL: BASE_URL,
 });
 export const privateRequest = axios.create({
   baseURL: BASE_URL,
-  headers: "token",
+  headers: { token: `Bearer ${TOKEN}` },
 });

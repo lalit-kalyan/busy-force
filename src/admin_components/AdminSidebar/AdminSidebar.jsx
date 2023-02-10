@@ -6,13 +6,15 @@ import {
   FaHome,
   FaUserFriends,
   FaDollarSign,
-  FaUserPlus,
   FaUserAltSlash,
   FaUserEdit,
+  FaUpload,
+  FaCommentDots,
 } from "react-icons/fa";
+
 import Bars from "../../assets/bars.png";
 
-function AdminSidebar() {
+function AdminSidebar({ getToStuff }) {
   const mobile = window.innerWidth <= 768 ? true : false;
   const [menuOpen, setMenuOpen] = useState(false);
   return (
@@ -67,6 +69,7 @@ function AdminSidebar() {
               <Link
                 onClick={() => {
                   setMenuOpen(false);
+                  getToStuff();
                 }}
                 to="/admin/member-list"
               >
@@ -80,6 +83,7 @@ function AdminSidebar() {
               <Link
                 onClick={() => {
                   setMenuOpen(false);
+                  getToStuff();
                 }}
                 to="/admin/adminEdit"
               >
@@ -93,6 +97,7 @@ function AdminSidebar() {
               <Link
                 onClick={() => {
                   setMenuOpen(false);
+                  getToStuff();
                 }}
                 to="/admin/treasury"
               >
@@ -101,17 +106,34 @@ function AdminSidebar() {
             </li>
             <li>
               <i>
-                <FaUserPlus />
+                <FaUpload />
               </i>
               <Link
                 onClick={() => {
                   setMenuOpen(false);
+                  getToStuff();
                 }}
-                to="/admin/adminRegister"
+                to="/admin/upload"
               >
-                <span>Register</span>
+                <span>Image Upload</span>
               </Link>
             </li>
+
+            <li>
+              <i>
+                <FaCommentDots />
+              </i>
+              <Link
+                onClick={() => {
+                  setMenuOpen(false);
+                  getToStuff();
+                }}
+                to="/admin/publish"
+              >
+                <span>Publish</span>
+              </Link>
+            </li>
+
             <li>
               <i>
                 <FaUserAltSlash />

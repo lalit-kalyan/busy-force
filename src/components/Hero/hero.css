@@ -9,6 +9,9 @@
   display: flex;
   gap: 2rem;
   flex-direction: column;
+  background-image: url("../../assets/bf2.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 .pannel {
   width: 10rem;
@@ -69,11 +72,11 @@
   flex-direction: column;
 }
 .figures > div > span:nth-child(1) {
-  color: white;
+  color: black;
   font-size: 2rem;
 }
 .figures > div > span:nth-child(2) {
-  color: var(--gray);
+  color: black;
   font-size: 1rem;
   text-transform: uppercase;
 }
@@ -83,7 +86,7 @@
   font-weight: normal;
 }
 .hero-buttons > :nth-child(1) {
-  color: white;
+  color: black;
   background-color: var(--orange);
   width: 8rem;
 }
@@ -236,4 +239,15 @@
     left: 2rem;
     top: 0;
   }
+}
+
+.textTitile {
+  color: orange;
+  margin-left: 1rem;
+}
+
+.quote {
+  background-color: rgba(66, 47, 13, 0.568);
+  padding: 5px;
+  border-radius: 3px;
 }
