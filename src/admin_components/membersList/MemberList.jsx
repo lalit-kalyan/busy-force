@@ -27,7 +27,7 @@ function MemberList() {
       }
     };
     getMembers();
-  }, [membersList]);
+  }, []);
 
   return (
     <div className="memberList">
@@ -38,7 +38,7 @@ function MemberList() {
         </div>
         <div>
           <button>
-            <Link to="/admin/editMember" className="link">
+            <Link to="/admin/add-member" className="link">
               ADD NEW MEMBER
             </Link>
           </button>

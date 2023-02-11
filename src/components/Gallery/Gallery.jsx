@@ -18,7 +18,7 @@ function Gallery() {
       }
     };
     getImages();
-  }, [images]);
+  }, []);
 
   const deletePhoto = async (id) => {
     try {

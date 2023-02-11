@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./singleMember.css";
-import { BsChatLeftText, BsPersonCheck, BsTrash } from "react-icons/bs";
+import { BsChatLeftText, BsPersonCheck } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import { publicRequest } from "../../requestMethods";
@@ -13,13 +13,13 @@ function SingleMember({ member, activteMember }) {
       } catch (error) {}
     };
     deativate();
-  }, [member]);
+  }, [member._id]);
 
   return (
     <>
       <div className={member.isActive ? "memberS" : "memberS notActive"}>
         <div className="memberDetailsS">
-          <Link to="/admin/details/1234">
+          <Link to={`/admin/details/${member._id}`}>
             <img src={member.pic} alt="member" />
           </Link>
           <span>{member.username} </span>
@@ -53,9 +53,6 @@ function SingleMember({ member, activteMember }) {
               </i>
             </button>
           )}
-          <button>
-            <BsTrash />
-          </button>
         </div>
       </div>
     </>

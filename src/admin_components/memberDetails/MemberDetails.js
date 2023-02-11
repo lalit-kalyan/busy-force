@@ -1,23 +1,54 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./memberDetails.css";
-import Pic from "../../assets/t-image1.png";
+
 import { Link } from "react-router-dom";
-import { BsPencilSquare } from "react-icons/bs";
+import {
+  BsPencilSquare,
+  BsFillPersonCheckFill,
+  BsFillPersonXFill,
+} from "react-icons/bs";
+import { useParams } from "react-router-dom";
+import { privateRequest } from "../../requestMethods";
+import Moment from "react-moment";
 
 function MemberDetails() {
-  const active = false;
+  const { id } = useParams();
+  const [member, setMember] = useState({});
+
+  useEffect(() => {
+    const getmembersDetails = async () => {
+      try {
+        const res = await privateRequest.get(`/members/${id}`);
+        setMember(res.data);
+      } catch (error) {}
+    };
+    getmembersDetails();
+  }, [id]);
+
   return (
     <div className="details">
       <div className="d-left">
         <div className="d-left-back"></div>
-        <img src={Pic} alt="" />
+        <img src={member.pic} alt="" />
         <div>
-          <span>MITTHU KALYAN</span>
-          <span>M.no. 9802070101</span>
+          <span style={{ textTransform: "uppercase" }}>{member.username}</span>
+          <span>M.no. {member.phone}</span>
+        </div>
+        <div className="actvBtns">
+          <button className="activatebtn btnone ">
+            <i>
+              <BsFillPersonCheckFill />
+            </i>
+          </button>
+          <button className="activatebtn btnTwo">
+            <i>
+              <BsFillPersonXFill />
+            </i>
+          </button>
         </div>
       </div>
       <div className="d-right">
-        {active ? (
+        {member.isActive ? (
           <div className="deactivate">
             <span>PLAN VALID</span>
           </div>
@@ -29,26 +60,32 @@ function MemberDetails() {
 
         <div className="d-div">
           <span className="da">ACTIVE PLAN : </span>
-          <span className="da dd">SILVER</span>
+          <span className="da dd">{member.planId}</span>
         </div>
 
         <div className="d-div">
-          <span className="da">ADDRESS : </span>
-          <span className="da dd">SHAMGARH</span>
+          <span className="da">AMOUNT </span>
+          <span className="da dd">{member.plan}/month</span>
         </div>
 
         <div className="dates">
           <div className="d-div">
             <span className="da">JOINING DATE -</span>
-            <span className="da dd">2023-08-14 </span>
+            <span className="da dd">
+              <Moment format="YYYY-MM-DD">{member.joining}</Moment>
+            </span>
           </div>
           <div className="d-div">
             <span className="da">PLAN START -</span>
-            <span className="da dd">2023-08-14 </span>
+            <span className="da dd">
+              <Moment format="YYYY-MM-DD">{member.lastActive}</Moment>
+            </span>
           </div>
           <div className="d-div">
             <span className="da">PLAN END -</span>
-            <span className="da dd">2023-08-14 </span>
+            <span className="da dd">
+              <Moment format="YYYY-MM-DD">{member.lastActive}</Moment>{" "}
+            </span>
           </div>
         </div>
 

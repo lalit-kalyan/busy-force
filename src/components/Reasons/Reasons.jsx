@@ -13,10 +13,16 @@ function Reasons() {
   return (
     <div className="reasons" id="reasons">
       <div className="left-r">
-        <img src={image1} alt="image1" />
-        <img src={image2} alt="image2" />
-        <img src={image3} alt="image3" />
-        <img src={image4} alt="image4" />
+        <div>
+          <img src={image1} alt="image1" className="imgFirst" />
+        </div>
+        <div>
+          <img src={image2} alt="image2" className="imgsec" />
+          <div>
+            <img src={image3} alt="image3" className="imgThree" />
+            <img src={image4} alt="image4" className="imgFour" />
+          </div>
+        </div>
       </div>
       <div className="right-r">
         <span>Some reasons</span>

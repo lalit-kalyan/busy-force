@@ -43,7 +43,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
   padding: 2rem;
   box-sizing: border-box;
   gap: 2rem;
@@ -113,4 +112,35 @@
   border-radius: 10px;
   background-color: rgba(0, 255, 42, 0.39);
   font-size: 1.3rem;
+}
+.actvBtns {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  top: 13rem;
+  left: 40%;
+}
+.activatebtn {
+  border: none;
+  color: white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+.activatebtn > i {
+  font-size: 2rem;
+}
+.btnone {
+  color: green;
+  background: rgba(0, 128, 0, 0.288);
+  border: 5px solid green;
+}
+.btnTwo {
+  color: red;
+  background: rgba(255, 0, 0, 0.24);
+  border: 5px solid red;
 }

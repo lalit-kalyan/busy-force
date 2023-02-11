@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./adminSidebar.css";
-import Profile from "../../assets/t-image3.jpg";
 import {
   FaHome,
   FaUserFriends,
@@ -11,18 +10,21 @@ import {
   FaUpload,
   FaCommentDots,
 } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 import Bars from "../../assets/bars.png";
 
 function AdminSidebar({ getToStuff }) {
   const mobile = window.innerWidth <= 768 ? true : false;
   const [menuOpen, setMenuOpen] = useState(false);
+  const admin = useSelector((state) => state.admin.currentAdmin);
   return (
     <div className="sidebarContainer">
       <div className="sidebarAdmin">
         <div className="sidebarAdminBox">
-          <img src={Profile} alt="profilepic" className="profilePic" />
-          <span>Mitthu kalyan</span>
+          <img src={admin.pic} alt="profilepic" className="profilePic" />
+          <span>{admin.username}</span>
+          <span style={{ textTransform: "none" }}>{admin.email}</span>
         </div>
       </div>
 
