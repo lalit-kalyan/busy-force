@@ -2,7 +2,6 @@ import React from "react";
 import "./plans.css";
 import { plansData, ProPlansData } from "../../data/plansData";
 import WhiteTick from "../../assets/whiteTick.png";
-import { BsArrowRight } from "react-icons/bs";
 import { BiRupee } from "react-icons/bi";
 
 function Plans() {

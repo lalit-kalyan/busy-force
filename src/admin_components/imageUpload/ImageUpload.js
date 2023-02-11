@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./imageUpload.css";
-// import Bf from "../../assets/bf3.jpg";
-import { IMAGE_URL, privateRequest, publicRequest } from "../../requestMethods";
+import { IMAGE_URL, privateRequest} from "../../requestMethods";
 import { useNavigate } from "react-router-dom";
 
 function ImageUpload() {

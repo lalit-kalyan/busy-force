@@ -8,7 +8,8 @@ function Treasury() {
 
   const everyMonthIncome = async () => {
     try {
-      const res = await privateRequest.post("/treasury");
+       await privateRequest.post("/treasury");
+      
     } catch (error) {
       console.log(error);
     }
