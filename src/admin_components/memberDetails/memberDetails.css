@@ -1,6 +1,6 @@
 .details {
   width: 100%;
-  height: 75vh;
+  height: 60vh;
   display: flex;
   position: relative;
   box-sizing: border-box;
@@ -13,28 +13,28 @@
 }
 .d-left-back {
   width: 100%;
-  height: 15rem;
+  height: 10rem;
   background: var(--planCard);
 }
 .d-left > img {
-  width: 20rem;
-  height: 20rem;
+  width: 10rem;
+  height: 10rem;
   object-fit: cover;
   border-radius: 50%;
   border: 8px solid white;
   position: absolute;
   top: 5rem;
-  left: 14%;
+  left: 17%;
 }
 .d-left > :nth-child(3) {
   position: relative;
-  top: 11rem;
+  top: 5.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .d-left > :nth-child(3) > span {
-  font-size: 2rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: orange;
 }
@@ -45,15 +45,14 @@
   align-items: center;
   padding: 2rem;
   box-sizing: border-box;
-  gap: 2rem;
-  padding-top: 5rem;
+  gap: 1rem;
 }
 .d-div {
   width: 30rem;
 }
 
 .da {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 500;
   color: white;
   letter-spacing: 3px;
@@ -104,7 +103,7 @@
 }
 .deactivate {
   color: rgb(164, 255, 199);
-  padding: 1rem;
+  padding: 0.5rem;
   width: 95%;
   align-self: flex-start;
   text-align: center;
@@ -119,7 +118,7 @@
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  top: 13rem;
+  top: 7rem;
   left: 40%;
 }
 .activatebtn {
@@ -132,7 +131,7 @@
   padding: 0.5rem;
 }
 .activatebtn > i {
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
 .btnone {
   color: green;

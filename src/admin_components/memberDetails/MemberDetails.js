@@ -64,7 +64,7 @@ function MemberDetails() {
         </div>
 
         <div className="d-div">
-          <span className="da">AMOUNT </span>
+          <span className="da">AMOUNT - </span>
           <span className="da dd">{member.plan}/month</span>
         </div>
 

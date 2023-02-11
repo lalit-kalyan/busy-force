@@ -14,11 +14,7 @@
   padding: 1rem;
 }
 .left-r > :nth-child(1) {
-  background-color: green;
   flex: 1;
-}
-.left-r > :nth-child(1) > img {
-  width: 100%;
 }
 .left-r > :nth-child(2) {
   flex: 2;
@@ -26,9 +22,16 @@
   flex-direction: column;
   gap: 1rem;
 }
+.imgFirst {
+  height: 32.5rem;
+  width: 15rem;
+  margin-left: -2rem;
+  object-fit: cover;
+}
 .imgsec {
   flex: 1;
-  width: 100%;
+  width: 30rem;
+  object-fit: cover;
 }
 .left-r > :nth-child(2) > :nth-child(2) {
   flex: 1;
@@ -37,9 +40,11 @@
 }
 .imgThree {
   flex: 3;
+  width: 17rem;
 }
 .imgFour {
   flex: 2;
+  width: 10rem;
 }
 
 .right-r {
@@ -48,6 +53,7 @@
   gap: 1rem;
   display: flex;
   flex-direction: column;
+  padding: 1rem;
 }
 .right-r > span {
   font-weight: bold;

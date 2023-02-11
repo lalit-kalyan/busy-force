@@ -33,7 +33,7 @@
 }
 .adminMain-r {
   flex: 10;
-  max-height: 75vh;
+  max-height: 65vh;
   overflow: scroll;
   position: relative;
 }
