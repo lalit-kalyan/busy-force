@@ -35,10 +35,10 @@
 
 .member {
   display: flex;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-transform: uppercase;
   font-weight: bold;
-  color: white;
+  color: rgb(255, 255, 255);
   background: var(--planCard);
   padding: 0.8rem;
 }
@@ -46,7 +46,7 @@
   flex: 2.3;
 }
 .planId2 {
-  flex: 1;
+  flex: .7;
 }
 .member > :nth-child(3) {
   flex: 1;

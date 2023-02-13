@@ -17,9 +17,9 @@ import Publish from "./admin_components/publish/Publish";
 import AddMember from "./admin_components/addmember/AddMember";
 
 function App() {
-  const member = useSelector((state) => state.member.currentMember);
-  const admin = useSelector((state) => state.admin.currentAdmin);
-  //console.log(admin);
+  const member = useSelector((state) => state.member?.currentMember);
+  const admin = useSelector((state) => state.admin?.currentAdmin);
+ 
 
   return (
     <div className="App">

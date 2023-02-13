@@ -11,13 +11,28 @@ import {
   FaCommentDots,
 } from "react-icons/fa";
 import { useSelector } from "react-redux";
-
+import { useDispatch } from "react-redux";
+import { logoutAdmin } from "../../redux/adminApiCalls";
+import { useNavigate } from "react-router-dom";
 import Bars from "../../assets/bars.png";
 
 function AdminSidebar({ getToStuff }) {
   const mobile = window.innerWidth <= 768 ? true : false;
   const [menuOpen, setMenuOpen] = useState(false);
   const admin = useSelector((state) => state.admin.currentAdmin);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const adminLogoutHandle = () => {
+    try {
+      console.log("admin logout");
+    logoutAdmin(dispatch)
+    navigate("/")
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="sidebarContainer">
       <div className="sidebarAdmin">
@@ -136,7 +151,7 @@ function AdminSidebar({ getToStuff }) {
               </Link>
             </li>
 
-            <li>
+            <li onClick={adminLogoutHandle}>
               <i>
                 <FaUserAltSlash />
               </i>

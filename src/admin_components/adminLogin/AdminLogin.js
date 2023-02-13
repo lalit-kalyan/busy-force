@@ -12,11 +12,9 @@ function AdminLogin() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log({ email, phone });
     if ((email, phone)) {
       adminLogin(dispatch, { email, phone });
-
-      navigate("/");
+      navigate("/admin");
     } else {
       console.log("email , phone is required to login");
       alert("email , phone is required to login");

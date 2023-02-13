@@ -20,8 +20,12 @@ const adminSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
+    adminLogOut: (state) => {
+      state.currentAdmin = null;
+    },
   },
 });
 
-export const { loginStart, loginSuccess, loginFailure } = adminSlice.actions;
+export const { loginStart, loginSuccess, loginFailure, adminLogOut } =
+  adminSlice.actions;
 export default adminSlice.reducer;

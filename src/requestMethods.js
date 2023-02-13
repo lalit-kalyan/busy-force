@@ -13,7 +13,7 @@ if (admin) {
   TOKEN = currentAdmin?.token;
 }
 
-// const currentAdmin = JSON.parse(admin)?.currentAdmin;
+
 
 export const publicRequest = axios.create({
   baseURL: BASE_URL,
