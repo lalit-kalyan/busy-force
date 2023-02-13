@@ -3,13 +3,16 @@ import "./memberList.css";
 import SingleMember from "../singleMember/SingleMember";
 import { Link } from "react-router-dom";
 import { privateRequest, publicRequest } from "../../requestMethods";
+import { useNavigate } from "react-router-dom";
 
 function MemberList() {
   const [membersList, setMemberList] = useState([]);
+  let navigate = useNavigate();
   const memberActivate = async (id) => {
     try {
       const res = await privateRequest.put(`/members/activate/${id}`);
       console.log(res.data);
+      navigate("/admin/treasury");
     } catch (error) {
       console.log(error);
     }

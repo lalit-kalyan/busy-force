@@ -8,8 +8,7 @@ function Treasury() {
 
   const everyMonthIncome = async () => {
     try {
-       await privateRequest.post("/treasury");
-      
+      await privateRequest.post("/treasury");
     } catch (error) {
       console.log(error);
     }
@@ -26,7 +25,7 @@ function Treasury() {
       }
     };
     getTreasuryData();
-  }, [treasury]);
+  }, []);
 
   return (
     <div className="treasury">
@@ -37,7 +36,6 @@ function Treasury() {
             <tr>
               <th>S.no</th>
               <th>Current Date</th>
-
               <th>Member</th>
               <th>Total Income</th>
             </tr>

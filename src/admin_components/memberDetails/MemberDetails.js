@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./memberDetails.css";
-
 import { Link } from "react-router-dom";
 import {
   BsPencilSquare,
@@ -10,10 +9,12 @@ import {
 import { useParams } from "react-router-dom";
 import { privateRequest } from "../../requestMethods";
 import Moment from "react-moment";
+import { useNavigate } from "react-router-dom";
 
 function MemberDetails() {
   const { id } = useParams();
   const [member, setMember] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getmembersDetails = async () => {
@@ -24,6 +25,16 @@ function MemberDetails() {
     };
     getmembersDetails();
   }, [id]);
+
+  const deleteMember = async () => {
+    try {
+      await privateRequest.delete(`/members/${id}`);
+      alert("the members has been delete......!");
+      navigate("/admin/member-list");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="details">
@@ -91,12 +102,12 @@ function MemberDetails() {
 
         <div className="detailButton">
           <button>
-            <Link to="/admin/editMember" className="link">
+            <Link to={`/admin/editMember/${member._id}`} className="link">
               <span>Edit</span>
               <BsPencilSquare />
             </Link>
           </button>
-          <button>DELETE</button>
+          <button onClick={deleteMember}>DELETE</button>
         </div>
       </div>
     </div>

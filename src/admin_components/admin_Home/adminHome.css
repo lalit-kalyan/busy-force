@@ -24,19 +24,18 @@
 }
 .adminMain {
   width: 100%;
-
   display: flex;
 }
 .adminMain-l {
   flex: 2;
-  min-height: 60vh;
 }
 .adminMain-r {
   flex: 10;
-  max-height: 65vh;
+  min-height: 65vh;
   overflow: scroll;
   position: relative;
 }
+
 
 .showLogo {
   width: 35rem;

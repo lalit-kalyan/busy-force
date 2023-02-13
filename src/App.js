@@ -40,7 +40,7 @@ function App() {
           <Route path="member-list" element={<MemberList />} />
           <Route path="treasury" element={<Treasury />} />
           <Route path="adminEdit" element={<EditAdmin />} />
-          <Route path="editMember" element={<EditMember />} />
+          <Route path="editMember/:id" element={<EditMember />} />
           <Route path="upload" element={<ImageUpload />} />
           <Route path="details/:id" element={<MemberDetails />} />
           <Route path="publish" element={<Publish />} />
