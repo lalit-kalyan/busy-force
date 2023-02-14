@@ -37,14 +37,14 @@ function App() {
           path="/admin"
           element={admin?.isAdmin ? <AdminHome /> : <Navigate to="/" replace />}
         >
-          <Route path="member-list" element={<MemberList />} />
-          <Route path="treasury" element={<Treasury />} />
-          <Route path="adminEdit" element={<EditAdmin />} />
-          <Route path="editMember/:id" element={<EditMember />} />
-          <Route path="upload" element={<ImageUpload />} />
-          <Route path="details/:id" element={<MemberDetails />} />
-          <Route path="publish" element={<Publish />} />
-          <Route path="add-member" element={<AddMember />} />
+          <Route path="/member-list" element={<MemberList />} />
+          <Route path="/treasury" element={<Treasury />} />
+          <Route path="/adminEdit" element={<EditAdmin />} />
+          <Route path="/editMember/:id" element={<EditMember />} />
+          <Route path="/upload" element={<ImageUpload />} />
+          <Route path="/details/:id" element={<MemberDetails />} />
+          <Route path="/publish" element={<Publish />} />
+          <Route path="/add-member" element={<AddMember />} />
         </Route>
         <Route path="adminLogin" element={<AdminLogin />} />
         <Route path="adminRegister" element={<AdminRegister />} />
