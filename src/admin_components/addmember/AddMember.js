@@ -26,7 +26,8 @@ function AddMember() {
       })
         .then((res) => res.json())
         .then((data) => {
-          setPic(data.url.toString());
+         // console.log(data);
+          setPic(data.secure_url.toString());
         })
         .catch((err) => {
           console.log(err);

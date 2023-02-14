@@ -48,7 +48,8 @@ function EditMember() {
       })
         .then((res) => res.json())
         .then((data) => {
-          setPic(data.url.toString());
+          console.log(data.url);
+          setPic(data.secure_url.toString());
         })
         .catch((err) => {
           console.log(err);

@@ -26,7 +26,7 @@ function AdminRegister() {
       })
         .then((res) => res.json())
         .then((data) => {
-          setPic(data.url.toString());
+          setPic(data.secure_url.toString());
         })
         .catch((err) => {
           console.log(err);
