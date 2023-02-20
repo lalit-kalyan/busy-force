@@ -18,18 +18,6 @@ function EditMember() {
   const [pic, setPic] = useState("");
   const [isActive, setIsActive] = useState(Boolean);
 
-  const updatedMember = {
-    username,
-    email,
-    phone,
-    pic,
-    joining,
-    isActive,
-    plan,
-    planId,
-    lastActive,
-  };
-
   const { id } = useParams();
   //console.log(id);
 
@@ -74,7 +62,7 @@ function EditMember() {
   }, [id]);
 
   const handleEditMember = async (e) => {
-    console.log(updatedMember);
+    //console.log(updatedMember);
     try {
       await privateRequest.put(`/members/${id}`, {
         username,
@@ -87,7 +75,7 @@ function EditMember() {
         planId,
         lastActive,
       });
-      alert("Your account has been created......!please login");
+      alert("the user has been Updated......!");
       setUsername("");
       setEmail("");
       setPhone("");

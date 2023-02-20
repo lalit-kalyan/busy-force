@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./memberList.css";
 import SingleMember from "../singleMember/SingleMember";
 import { Link } from "react-router-dom";
-import { privateRequest, publicRequest } from "../../requestMethods";
+import { privateRequest } from "../../requestMethods";
 import { useNavigate } from "react-router-dom";
 
 function MemberList() {
@@ -10,18 +10,17 @@ function MemberList() {
   let navigate = useNavigate();
   const memberActivate = async (id) => {
     try {
-      const res = await privateRequest.put(`/members/activate/${id}`);
-      console.log(res.data);
+      await privateRequest.put(`/members/activate/${id}`);
+      //console.log(res.data);
+      alert("Member has been activated.....!");
       navigate("/admin/treasury");
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
     const getMembers = async () => {
       try {
-        const res = await publicRequest.get("/members/all");
+        const res = await privateRequest.get("/members/all");
         //console.log(res.data);
         setMemberList(res.data);
       } catch (error) {

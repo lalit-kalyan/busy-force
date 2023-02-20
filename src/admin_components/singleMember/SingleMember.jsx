@@ -3,14 +3,26 @@ import "./singleMember.css";
 import { BsChatLeftText, BsPersonCheck } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
-import { publicRequest } from "../../requestMethods";
+import { privateRequest } from "../../requestMethods";
 
 function SingleMember({ member, activteMember }) {
+  const sendMessage = async () => {
+    if (member.isActive === false) {
+      try {
+        await privateRequest.post("/message");
+        alert("message sent.....!");
+      } catch (error) {}
+      console.log("message sent");
+    }
+  };
+
   useEffect(() => {
     const deativate = async () => {
       try {
-        publicRequest.put(`/members/deactivate/${member._id}`);
-      } catch (error) {}
+        privateRequest.put(`/members/deactivate/${member._id}`);
+      } catch (error) {
+        console.log(error);
+      }
     };
     deativate();
   }, [member._id]);
@@ -34,7 +46,7 @@ function SingleMember({ member, activteMember }) {
           <Moment format="YYYY-MM-DD">{member.lastActive}</Moment>
         </span>
         <span>{member.plan}</span>
-        <div className="membersButtonS">
+        <div className="membersButtonS" onClick={sendMessage}>
           <button>
             <i>
               <BsChatLeftText />
