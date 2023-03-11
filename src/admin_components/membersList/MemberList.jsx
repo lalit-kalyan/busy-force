@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 function MemberList() {
   const [membersList, setMemberList] = useState([]);
+  const [search, setSearch] = useState("");
   let navigate = useNavigate();
   const memberActivate = async (id) => {
     try {
@@ -20,7 +21,7 @@ function MemberList() {
   useEffect(() => {
     const getMembers = async () => {
       try {
-        const res = await privateRequest.get("/members/all");
+        const res = await privateRequest.get(`/members/all?search=${search}`);
         //console.log(res.data);
         setMemberList(res.data);
       } catch (error) {
@@ -29,13 +30,13 @@ function MemberList() {
       }
     };
     getMembers();
-  }, []);
+  }, [search]);
 
   return (
     <div className="memberList">
       <div className="memberListbar">
         <div>
-          <input type="text" />
+          <input type="text" onChange={(e) => setSearch(e.target.value)} />
           <button>Search</button>
         </div>
         <div>

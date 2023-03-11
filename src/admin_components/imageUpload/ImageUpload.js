@@ -1,44 +1,25 @@
 import React, { useState } from "react";
 import "./imageUpload.css";
-import { IMAGE_URL, privateRequest} from "../../requestMethods";
+import { IMAGE_URL, privateRequest } from "../../requestMethods";
 import { useNavigate } from "react-router-dom";
 
 function ImageUpload() {
   let navigate = useNavigate();
   const [title, setTitle] = useState("");
-  const [pic, setPic] = useState("");
+  const [file, setFile] = useState(null);
 
-  const photoUpload = (photo) => {
-    if (photo) {
-      const data = new FormData();
-      data.append("file", photo);
-      data.append("upload_preset", "busy_force");
-      data.append("cloude_name", "kalyanmitthu");
-      //!..........cloudinary start............................
-      fetch(IMAGE_URL, {
-        method: "post",
-        body: data,
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setPic(data.secure_url.toString());
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      //!..........cloudinary end...............................
-    } else {
-      console.log("select a photo first.........!");
-      alert("select a photo first.........!");
-    }
-  };
   const handleUpload = async (e) => {
     e.preventDefault();
-    if ((pic, title)) {
+
+    if ((file, title)) {
       try {
-        await privateRequest.post("/gallery", { title, pic });
+        const data = new FormData();
+        data.append("file", file);
+        data.append("title", title);
+
+        await privateRequest.post("/gallery", data);
         alert("Image has been uploaded...!");
-        setPic("");
+        setFile(null);
         setTitle("");
         navigate("/");
       } catch (error) {
@@ -77,7 +58,7 @@ function ImageUpload() {
               <input
                 type="file"
                 accept=".png , .jpeg , .jpg"
-                onChange={(e) => photoUpload(e.target.files[0])}
+                onChange={(e) => setFile(e.target.files[0])}
               />
             </div>
 

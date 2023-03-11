@@ -15,8 +15,8 @@ function EditMember() {
   const [lastActive, setLastIsActive] = useState("");
   const [plan, setPlan] = useState("");
   const [planId, setPlanId] = useState("silver");
-  const [pic, setPic] = useState("");
-  const [isActive, setIsActive] = useState(Boolean);
+  const [pic, setPic] = useState(null);
+  const [isActive, setIsActive] = useState(null);
 
   const { id } = useParams();
   //console.log(id);
@@ -162,6 +162,7 @@ function EditMember() {
                 defaultValue="silver"
                 onChange={(e) => setPlanId(e.target.value)}
               >
+                <option>Select one plan</option>
                 <option value="silver">Silver</option>
                 <option value="gold">Gold</option>
                 <option value="platinum">Platinum</option>
@@ -175,6 +176,7 @@ function EditMember() {
                 defaultValue="silver"
                 onChange={(e) => setIsActive(e.target.value)}
               >
+                <option>Select one</option>
                 <option value="true">Activate</option>
                 <option value="false">Deativate</option>
               </select>

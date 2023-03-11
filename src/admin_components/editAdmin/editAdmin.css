@@ -5,6 +5,20 @@
   justify-content: center;
   padding-top: 1rem;
 }
+.activation {
+  display: flex;
+  background-color: white;
+  width: 95%;
+  padding: 5px;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.activation select {
+  background-color: orange;
+  padding: 4px;
+}
 @media screen and (max-width: 768px) {
   .adminEdit {
     padding: 10px;

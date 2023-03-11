@@ -44,7 +44,6 @@ function AddMember() {
         username,
         email,
         phone,
-        pic,
         joining,
         plan,
         planId,

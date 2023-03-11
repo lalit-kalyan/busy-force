@@ -26,8 +26,8 @@ function AdminSidebar({ getToStuff }) {
   const adminLogoutHandle = () => {
     try {
       console.log("admin logout");
-    logoutAdmin(dispatch)
-    navigate("/")
+      logoutAdmin(dispatch);
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -102,9 +102,9 @@ function AdminSidebar({ getToStuff }) {
                   setMenuOpen(false);
                   getToStuff();
                 }}
-                to="/admin/adminEdit"
+                to="/admin/adminList"
               >
-                <span>Edit Admin</span>
+                <span>Admin List</span>
               </Link>
             </li>
             <li>

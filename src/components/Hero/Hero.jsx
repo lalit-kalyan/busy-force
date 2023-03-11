@@ -14,11 +14,12 @@ function Hero() {
   const transition = { typeof: "spring", duration: 3 };
   const mobile = window.innerWidth <= 768 ? true : false;
   const dispatch = useDispatch();
-  const member = useSelector((state) => state.member.currentMember);
-  const admin = useSelector((state) => state.admin.currentAdmin);
+  const member = useSelector((state) => state.member?.currentMember);
+  const admin = useSelector((state) => state.admin?.currentAdmin);
+  
 
   const handleLogout = () => {
-    console.log("logout");
+    //console.log("logout");
     logoutMember(dispatch);
   };
   return (
@@ -59,7 +60,7 @@ function Hero() {
             <span className="textTitile">Ideal body</span>
           </div>
           <div>
-            <span className="quote" >
+            <span className="quote">
               in here we will help you to shape and live up your life to fullest
             </span>
           </div>

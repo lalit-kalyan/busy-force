@@ -10,52 +10,26 @@ function AdminRegister() {
   const [username, setUsername] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [pic, setPic] = useState("");
-
-  //*..IMAGE_UPLOAD.....
-  const photoUpload = (photo) => {
-    if (photo) {
-      const data = new FormData();
-      data.append("file", photo);
-      data.append("upload_preset", "busy_force");
-      data.append("cloude_name", "kalyanmitthu");
-      //!..........cloudinary start............................
-      fetch(IMAGE_URL, {
-        method: "post",
-        body: data,
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setPic(data.secure_url.toString());
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      //!..........cloudinary end...............................
-    } else {
-      console.log("select a photo first.........!");
-      alert("select a photo first.........!");
-    }
-  };
+  const [file, setFile] = useState(null);
 
   const handleRegister = async (e) => {
     e.preventDefault();
 
+    const data = new FormData();
+    data.append("file", file);
+    data.append("username", username);
+    data.append("phone", phone);
+    data.append("email", email);
+
     try {
-      const newAdmin = {
-        username,
-        email,
-        phone,
-        pic,
-      };
       //console.log(newAdmin);
 
-      await publicRequest.post("/admin", newAdmin);
+      await publicRequest.post("/admin", data);
       alert("Your account has been created......!please login");
       setUsername("");
       setEmail("");
       setPhone("");
-      setPic("");
+      setFile(null);
       navigate("/adminLogin");
     } catch (error) {
       if (error.response?.data) {
@@ -93,7 +67,7 @@ function AdminRegister() {
               <input
                 type="file"
                 accept=".png , .jpeg , .jpg"
-                onChange={(e) => photoUpload(e.target.files[0])}
+                onChange={(e) => setFile(e.target.files[0])}
               />
             </div>
             <input

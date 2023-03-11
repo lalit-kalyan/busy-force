@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./memberDetails.css";
 import { Link } from "react-router-dom";
-import {
-  BsPencilSquare,
-  BsFillPersonCheckFill,
-  BsFillPersonXFill,
-} from "react-icons/bs";
+import { BsPencilSquare } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 import { privateRequest } from "../../requestMethods";
 import Moment from "react-moment";
@@ -45,18 +41,6 @@ function MemberDetails() {
           <span style={{ textTransform: "uppercase" }}>{member.username}</span>
           <span>M.no. {member.phone}</span>
         </div>
-        <div className="actvBtns">
-          <button className="activatebtn btnone ">
-            <i>
-              <BsFillPersonCheckFill />
-            </i>
-          </button>
-          <button className="activatebtn btnTwo">
-            <i>
-              <BsFillPersonXFill />
-            </i>
-          </button>
-        </div>
       </div>
       <div className="d-right">
         {member.isActive ? (
@@ -87,13 +71,7 @@ function MemberDetails() {
             </span>
           </div>
           <div className="d-div">
-            <span className="da">PLAN START -</span>
-            <span className="da dd">
-              <Moment format="YYYY-MM-DD">{member.lastActive}</Moment>
-            </span>
-          </div>
-          <div className="d-div">
-            <span className="da">PLAN END -</span>
+            <span className="da">PLAN WILL END -</span>
             <span className="da dd">
               <Moment format="YYYY-MM-DD">{member.lastActive}</Moment>{" "}
             </span>
