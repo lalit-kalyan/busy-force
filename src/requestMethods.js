@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "http://localhost:5000/api";
+const BASE_URL = "https://ill-pear-dove-sari.cyclic.app/api";
 
 export const IMAGE_URL =
   "https://api.cloudinary.com/v1_1/kalyanmitthu/image/upload";
@@ -12,8 +12,6 @@ if (admin) {
   const currentAdmin = JSON.parse(admin)?.currentAdmin;
   TOKEN = currentAdmin?.token;
 }
-
-
 
 export const publicRequest = axios.create({
   baseURL: BASE_URL,

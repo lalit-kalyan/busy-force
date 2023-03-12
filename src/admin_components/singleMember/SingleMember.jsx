@@ -6,6 +6,7 @@ import Moment from "react-moment";
 import { privateRequest } from "../../requestMethods";
 
 function SingleMember({ member, activteMember }) {
+  // console.log(member);
   const sendMessage = async () => {
     if (member.isActive === false) {
       try {
@@ -15,6 +16,14 @@ function SingleMember({ member, activteMember }) {
       console.log("message sent");
     }
   };
+  useEffect(() => {
+    const today = new Date();
+    const memberDate = new Date(member.lastActive);
+    //console.log(memberDate , today);
+    if (memberDate == today) {
+      sendMessage();
+    }
+  }, [member.lastActive]);
 
   useEffect(() => {
     const deativate = async () => {
@@ -46,7 +55,7 @@ function SingleMember({ member, activteMember }) {
           <Moment format="YYYY-MM-DD">{member.lastActive}</Moment>
         </span>
         <span>{member.plan}</span>
-        <div className="membersButtonS" onClick={sendMessage}>
+        <div className="membersButtonS">
           <button>
             <i>
               <BsChatLeftText />

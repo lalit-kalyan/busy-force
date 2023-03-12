@@ -8,7 +8,8 @@ function Publish() {
 
   const sendMessageToAll = async (event) => {
     event.preventDefault();
-    if (text) {
+    if (text !== " ") {
+      console.log(text);
       try {
         await privateRequest.post("/message/bulk", { text });
         setText(" ");
@@ -28,7 +29,7 @@ function Publish() {
         <label>Write a message...... </label>
         <textarea
           type="text"
-          defaultValue="For all gym members...... -"
+          placeholder="write your msg here......"
           className="p-text"
           onChange={(e) => {
             setText(e.target.value);

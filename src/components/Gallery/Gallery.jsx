@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 function Gallery() {
   const [images, setImages] = useState([]);
   const admin = useSelector((state) => state.admin.currentAdmin);
+  //console.log(images);
 
   useEffect(() => {
     const getImages = async () => {
@@ -41,7 +42,10 @@ function Gallery() {
             <img src={i.pic} alt="pic" />
             <span>{i.title}</span>
             {admin?.isAdmin ? (
-              <button className="dltImage" onClick={(e) => deletePhoto(i._id)}>
+              <button
+                className="dltImage"
+                onClick={(e) => deletePhoto(i.publicId)}
+              >
                 <i>
                   <BsTrash />
                 </i>

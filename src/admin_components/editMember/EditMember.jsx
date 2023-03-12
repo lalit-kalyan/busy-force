@@ -8,6 +8,7 @@ function EditMember() {
   let navigate = useNavigate();
   const [member, setMember] = useState({});
 
+
   const [username, setUsername] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -15,39 +16,11 @@ function EditMember() {
   const [lastActive, setLastIsActive] = useState("");
   const [plan, setPlan] = useState("");
   const [planId, setPlanId] = useState("silver");
-  const [pic, setPic] = useState(null);
+  const [file, setFile] = useState(null);
   const [isActive, setIsActive] = useState(null);
 
   const { id } = useParams();
   //console.log(id);
-
-  //*..IMAGE_UPLOAD.....
-  const photoUpload = (photo) => {
-    if (photo) {
-      const data = new FormData();
-      data.append("file", photo);
-      data.append("upload_preset", "busy_force");
-      data.append("cloude_name", "kalyanmitthu");
-
-      //!..........cloudinary start............................
-      fetch(IMAGE_URL, {
-        method: "post",
-        body: data,
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data.url);
-          setPic(data.secure_url.toString());
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      //!..........cloudinary end...............................
-    } else {
-      console.log("select a photo first.........!");
-      alert("select a photo first.........!");
-    }
-  };
 
   useEffect(() => {
     const getMember = async () => {
@@ -63,23 +36,24 @@ function EditMember() {
 
   const handleEditMember = async (e) => {
     //console.log(updatedMember);
+
+    const data = new FormData();
+    data.append("file", file);
+    data.append("username", username);
+    data.append("email", email);
+    data.append("phone", phone);
+    data.append("joining", joining);
+    data.append("lastActive", lastActive);
+    data.append("plan", plan);
+    data.append("planId", planId);
+    data.append("isActive", isActive);
     try {
-      await privateRequest.put(`/members/${id}`, {
-        username,
-        email,
-        phone,
-        pic,
-        joining,
-        isActive,
-        plan,
-        planId,
-        lastActive,
-      });
+      await privateRequest.put(`/members/${id}` , data);
       alert("the user has been Updated......!");
       setUsername("");
       setEmail("");
       setPhone("");
-      setPic("");
+      setFile(null);
       setJoining("");
       setPlan("");
       setPlanId("");
@@ -105,7 +79,7 @@ function EditMember() {
               type="file"
               className="fileinputedit"
               accept=".png , .jpeg , .jpg"
-              onChange={(e) => photoUpload(e.target.files[0])}
+              onChange={(e) => setFile(e.target.files[0])}
             />
           </div>
           <div className="editCont">

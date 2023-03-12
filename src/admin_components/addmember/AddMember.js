@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./addMember.css";
 import { useNavigate } from "react-router-dom";
-import { IMAGE_URL, publicRequest } from "../../requestMethods";
+import { publicRequest } from "../../requestMethods";
 
 function AddMember() {
   const [username, setUsername] = useState("");
@@ -10,51 +10,27 @@ function AddMember() {
   const [joining, setJoining] = useState("");
   const [plan, setPlan] = useState("");
   const [planId, setPlanId] = useState("silver");
-  const [pic, setPic] = useState("");
+  const [file, setFile] = useState(null);
   let navigate = useNavigate();
 
-  const photoUpload = (photo) => {
-    if (photo) {
-      const data = new FormData();
-      data.append("file", photo);
-      data.append("upload_preset", "busy_force");
-      data.append("cloude_name", "kalyanmitthu");
-      //!..........cloudinary start............................
-      fetch(IMAGE_URL, {
-        method: "post",
-        body: data,
-      })
-        .then((res) => res.json())
-        .then((data) => {
-         // console.log(data);
-          setPic(data.secure_url.toString());
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      //!..........cloudinary end...............................
-    } else {
-      console.log("select a photo first.........!");
-    }
-  };
-
-  const handleRegister = async (e) => {
+  const handleRegister = async () => {
     try {
-      const newMember = {
-        username,
-        email,
-        phone,
-        joining,
-        plan,
-        planId,
-      };
-      console.log(newMember);
-      await publicRequest.post("/members", newMember);
+      const data = new FormData();
+      data.append("file", file);
+      data.append("username", username);
+      data.append("phone", phone);
+      data.append("email", email);
+      data.append("joining", joining);
+      data.append("plan", plan);
+      data.append("planId", planId);
+     
+
+      await publicRequest.post("/members", data);
       alert("Your account has been created......!please login");
       setUsername("");
       setEmail("");
       setPhone("");
-      setPic("");
+      setFile(null);
       setJoining("");
       setPlan("");
       setPlanId("");
@@ -85,7 +61,7 @@ function AddMember() {
               type="file"
               className="fileinput"
               accept=".png , .jpeg , .jpg"
-              onChange={(e) => photoUpload(e.target.files[0])}
+              onChange={(e) => setFile(e.target.files[0])}
             />
             <input
               type="text"
