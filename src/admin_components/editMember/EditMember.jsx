@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IMAGE_URL, privateRequest } from "../../requestMethods";
+import { privateRequest } from "../../requestMethods";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import("./editMember.css");
