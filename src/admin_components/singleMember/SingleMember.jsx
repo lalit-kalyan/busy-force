@@ -23,7 +23,7 @@ function SingleMember({ member, activteMember }) {
     if (memberDate === today) {
       sendMessage();
     }
-  }, [member.lastActive , SingleMember]);
+  }, [member.lastActive , sendMessage]);
 
   useEffect(() => {
     const deativate = async () => {
