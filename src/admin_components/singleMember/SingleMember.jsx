@@ -7,23 +7,24 @@ import { privateRequest } from "../../requestMethods";
 
 function SingleMember({ member, activteMember }) {
   // console.log(member);
-  const sendMessage = async () => {
-    if (member.isActive === false) {
-      try {
-        await privateRequest.post("/message");
-        alert("message sent.....!");
-      } catch (error) {}
-      console.log("message sent");
-    }
-  };
+
   useEffect(() => {
     const today = new Date();
     const memberDate = new Date(member.lastActive);
     //console.log(memberDate , today);
+    const sendMessage = async () => {
+      if (member.isActive === false) {
+        try {
+          await privateRequest.post("/message");
+          alert("message sent.....!");
+        } catch (error) {}
+        console.log("message sent");
+      }
+    };
     if (memberDate === today) {
       sendMessage();
     }
-  }, [member.lastActive , sendMessage]);
+  }, [member.lastActive ,member.isActive ]);
 
   useEffect(() => {
     const deativate = async () => {
