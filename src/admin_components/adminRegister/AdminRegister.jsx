@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./adminRegister.css";
-import { IMAGE_URL } from "../../requestMethods";
 import { publicRequest } from "../../requestMethods";
 import { useNavigate } from "react-router-dom";
 

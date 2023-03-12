@@ -20,7 +20,7 @@ function SingleMember({ member, activteMember }) {
     const today = new Date();
     const memberDate = new Date(member.lastActive);
     //console.log(memberDate , today);
-    if (memberDate == today) {
+    if (memberDate === today) {
       sendMessage();
     }
   }, [member.lastActive]);

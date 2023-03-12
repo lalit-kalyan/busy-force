@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IMAGE_URL, privateRequest } from "../../requestMethods";
+import { privateRequest } from "../../requestMethods";
 import { useNavigate, useParams } from "react-router-dom";
 import("./editAdmin.css");
 
@@ -22,7 +22,7 @@ function EditAdmin() {
       data.append("email", email);
       data.append("phone", phone);
       try {
-        const res = await privateRequest.put(`/admin/${id}`, data);
+        await privateRequest.put(`/admin/${id}`, data);
         //console.log(res.data);
         alert("Admin has been updated.....!");
         navigate("/admin/adminList");
