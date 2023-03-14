@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 function AdminList() {
   const [admin, setAdmin] = useState([]);
   const thisadmin = useSelector((state) => state.admin?.currentAdmin);
-  console.log(thisadmin._id);
+ // console.log(thisadmin._id);
   useEffect(() => {
     const getAdmins = async () => {
       const res = await privateRequest.get("/admin/all");
