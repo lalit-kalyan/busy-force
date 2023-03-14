@@ -14,7 +14,7 @@ function EditMember() {
   const [joining, setJoining] = useState("");
   const [lastActive, setLastIsActive] = useState("");
   const [plan, setPlan] = useState("");
-  const [planId, setPlanId] = useState("silver");
+  const [planId, setPlanId] = useState(null);
   const [address, setAddres] = useState("");
   const [isActive, setIsActive] = useState(null);
 
@@ -53,7 +53,7 @@ function EditMember() {
       setAddres("");
       setJoining("");
       setPlan("");
-      setPlanId("");
+      setPlanId(null);
       navigate("/admin/member-list");
     } catch (error) {
       if (error.response?.data) {
@@ -127,10 +127,7 @@ function EditMember() {
           <div className="editCont">
             <div className="loginplans">
               <label>Select a Plan</label>
-              <select
-                name="plans"
-                onChange={(e) => setPlanId(e.target.value)}
-              >
+              <select name="plans" onChange={(e) => setPlanId(e.target.value)}>
                 <option>Select one plan</option>
                 <option value="silver">Silver</option>
                 <option value="gold">Gold</option>
