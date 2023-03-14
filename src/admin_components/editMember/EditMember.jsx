@@ -138,6 +138,10 @@ function EditMember() {
                 <option value="gold">Gold</option>
                 <option value="platinum">Platinum</option>
                 <option value="diamond">Diamond</option>
+                <option value="pro_silver"> Pro Silver</option>
+                <option value="pro_gold">Pro Gold</option>
+                <option value="pro_platinum">Pro Platinum</option>
+                <option value="pro_diamond">Pro Diamond</option>
               </select>
             </div>
             <div className="loginplans">
