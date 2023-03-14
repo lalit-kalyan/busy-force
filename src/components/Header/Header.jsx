@@ -40,7 +40,7 @@ function Header() {
               }}
               smooth={true}
             >
-              Hero
+              Home
             </Link>
           </li>
           <li>
