@@ -14,9 +14,9 @@ function EditMember() {
   const [joining, setJoining] = useState("");
   const [lastActive, setLastIsActive] = useState("");
   const [plan, setPlan] = useState("");
-  const [planId, setPlanId] = useState(null);
+  const [membership, setMemberShip] = useState("");
   const [address, setAddres] = useState("");
-  const [isActive, setIsActive] = useState(null);
+  const [isActive, setIsActive] = useState();
 
   const { id } = useParams();
   //console.log(id);
@@ -34,6 +34,7 @@ function EditMember() {
   }, [id]);
 
   const handleEditMember = async (e) => {
+    console.log(isActive);
     try {
       await privateRequest.put(`/members/${id}`, {
         username,
@@ -43,7 +44,7 @@ function EditMember() {
         joining,
         lastActive,
         plan,
-        planId,
+        membership,
         isActive,
       });
       alert("the user has been Updated......!");
@@ -53,7 +54,8 @@ function EditMember() {
       setAddres("");
       setJoining("");
       setPlan("");
-      setPlanId(null);
+      setMember(null);
+      setIsActive("");
       navigate("/admin/member-list");
     } catch (error) {
       if (error.response?.data) {
@@ -127,7 +129,10 @@ function EditMember() {
           <div className="editCont">
             <div className="loginplans">
               <label>Select a Plan</label>
-              <select name="plans" onChange={(e) => setPlanId(e.target.value)}>
+              <select
+                name="plans"
+                onChange={(e) => setMemberShip(e.target.value)}
+              >
                 <option>Select one plan</option>
                 <option value="silver">Silver</option>
                 <option value="gold">Gold</option>
@@ -138,8 +143,7 @@ function EditMember() {
             <div className="loginplans">
               <label>Edit Activation</label>
               <select
-                name="plans"
-                defaultValue="silver"
+                name="activation"
                 onChange={(e) => setIsActive(e.target.value)}
               >
                 <option>Select one</option>
