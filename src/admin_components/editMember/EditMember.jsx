@@ -129,7 +129,6 @@ function EditMember() {
               <label>Select a Plan</label>
               <select
                 name="plans"
-                defaultValue="silver"
                 onChange={(e) => setPlanId(e.target.value)}
               >
                 <option>Select one plan</option>
