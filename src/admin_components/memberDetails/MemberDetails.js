@@ -55,6 +55,11 @@ function MemberDetails() {
         )}
 
         <div className="d-div">
+          <span className="da">ADDRESS : </span>
+          <span className="da dd">{member.address}</span>
+        </div>
+
+        <div className="d-div">
           <span className="da">ACTIVE PLAN : </span>
           <span className="da dd">{member.planId}</span>
         </div>
