@@ -23,7 +23,7 @@ function AdminList() {
     } else {
       try {
         await privateRequest.delete("/admin/" + id);
-        console.log(id);
+        //console.log(id);
         alert("admin has been deleted .....!");
       } catch (error) {
         console.log(error);
