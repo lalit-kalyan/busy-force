@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./adminList.css";
 import { privateRequest } from "../../requestMethods";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function AdminList() {
   const [admin, setAdmin] = useState([]);
+  const thisadmin = useSelector((state) => state.admin?.currentAdmin);
+  console.log(thisadmin._id);
   useEffect(() => {
     const getAdmins = async () => {
       const res = await privateRequest.get("/admin/all");
@@ -13,6 +16,20 @@ function AdminList() {
     };
     getAdmins();
   }, []);
+
+  const deleteAdmin = async (id) => {
+    if (thisadmin._id === id) {
+      alert("YOU CANT NOT DELETE YOURSELF.....!");
+    } else {
+      try {
+        await privateRequest.delete("/admin/" + id);
+        console.log(id);
+        alert("admin has been deleted .....!");
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
   return (
     <div className="adminList">
       {admin?.map((a) => (
@@ -28,7 +45,7 @@ function AdminList() {
                 EDIT
               </Link>
             </button>
-            <button>DELETE</button>
+            <button onClick={() => deleteAdmin(a._id)}>DELETE</button>
           </div>
         </div>
       ))}
