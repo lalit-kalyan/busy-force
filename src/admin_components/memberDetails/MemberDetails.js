@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { privateRequest } from "../../requestMethods";
 import Moment from "react-moment";
 import { useNavigate } from "react-router-dom";
+import LOGO from "../../assets/bf_logo.png";
 
 function MemberDetails() {
   const { id } = useParams();
@@ -36,7 +37,7 @@ function MemberDetails() {
     <div className="details">
       <div className="d-left">
         <div className="d-left-back"></div>
-        <img src={member.pic} alt="" />
+        <img src={LOGO} alt="" />
         <div>
           <span style={{ textTransform: "uppercase" }}>{member.username}</span>
           <span>M.no. {member.phone}</span>

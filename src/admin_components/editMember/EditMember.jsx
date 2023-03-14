@@ -8,7 +8,6 @@ function EditMember() {
   let navigate = useNavigate();
   const [member, setMember] = useState({});
 
-
   const [username, setUsername] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -16,7 +15,7 @@ function EditMember() {
   const [lastActive, setLastIsActive] = useState("");
   const [plan, setPlan] = useState("");
   const [planId, setPlanId] = useState("silver");
-  const [file, setFile] = useState(null);
+  const [address, setAddres] = useState("");
   const [isActive, setIsActive] = useState(null);
 
   const { id } = useParams();
@@ -35,25 +34,23 @@ function EditMember() {
   }, [id]);
 
   const handleEditMember = async (e) => {
-    //console.log(updatedMember);
-
-    const data = new FormData();
-    data.append("file", file);
-    data.append("username", username);
-    data.append("email", email);
-    data.append("phone", phone);
-    data.append("joining", joining);
-    data.append("lastActive", lastActive);
-    data.append("plan", plan);
-    data.append("planId", planId);
-    data.append("isActive", isActive);
     try {
-      await privateRequest.put(`/members/${id}` , data);
+      await privateRequest.put(`/members/${id}`, {
+        username,
+        address,
+        email,
+        phone,
+        joining,
+        lastActive,
+        plan,
+        planId,
+        isActive,
+      });
       alert("the user has been Updated......!");
       setUsername("");
       setEmail("");
       setPhone("");
-      setFile(null);
+      setAddres("");
       setJoining("");
       setPlan("");
       setPlanId("");
@@ -74,14 +71,6 @@ function EditMember() {
         </div>
 
         <div className="formContainerEdit">
-          <div className="editCont">
-            <input
-              type="file"
-              className="fileinputedit"
-              accept=".png , .jpeg , .jpg"
-              onChange={(e) => setFile(e.target.files[0])}
-            />
-          </div>
           <div className="editCont">
             <div className="editDates">
               <div>
@@ -114,6 +103,7 @@ function EditMember() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
+
           <div className="editCont">
             <input
               type="number"
@@ -128,6 +118,12 @@ function EditMember() {
               onChange={(e) => setPlan(e.target.value)}
             />
           </div>
+          <input
+            type="text"
+            placeholder={member.address}
+            className="editInput"
+            onChange={(e) => setAddres(e.target.value)}
+          />
           <div className="editCont">
             <div className="loginplans">
               <label>Select a Plan</label>
