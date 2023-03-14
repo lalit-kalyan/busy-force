@@ -96,10 +96,10 @@ function AddMember() {
                 <option value="gold">Gold</option>
                 <option value="platinum">Platinum</option>
                 <option value="diamond">Diamond</option>
-                <option value="silver"> Pro Silver</option>
-                <option value="gold">Pro Gold</option>
-                <option value="platinum">Pro Platinum</option>
-                <option value="diamond">Pro Diamond</option>
+                <option value="pro_silver"> Pro Silver</option>
+                <option value="pro_gold">Pro Gold</option>
+                <option value="pro_platinum">Pro Platinum</option>
+                <option value="pro_diamond">Pro Diamond</option>
               </select>
             </div>
             <button onClick={handleRegister}>ADD</button>
