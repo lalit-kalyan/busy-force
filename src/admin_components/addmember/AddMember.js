@@ -5,32 +5,40 @@ import { publicRequest } from "../../requestMethods";
 
 function AddMember() {
   const [username, setUsername] = useState("");
+  const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [joining, setJoining] = useState("");
   const [plan, setPlan] = useState("");
   const [planId, setPlanId] = useState("silver");
-  const [file, setFile] = useState(null);
   let navigate = useNavigate();
 
   const handleRegister = async () => {
     try {
-      const data = new FormData();
-      data.append("file", file);
-      data.append("username", username);
-      data.append("phone", phone);
-      data.append("email", email);
-      data.append("joining", joining);
-      data.append("plan", plan);
-      data.append("planId", planId);
-     
+      // const data = {
+      //   username,
+      //   address,
+      //   phone,
+      //   email,
+      //   joining,
+      //   plan,
+      //   planId,
+      // };
+      // console.log(data);
 
-      await publicRequest.post("/members", data);
+      await publicRequest.post("/members", {
+        username,
+        address,
+        phone,
+        email,
+        joining,
+        plan,
+        planId,
+      });
       alert("Your account has been created......!please login");
       setUsername("");
       setEmail("");
       setPhone("");
-      setFile(null);
       setJoining("");
       setPlan("");
       setPlanId("");
@@ -58,12 +66,6 @@ function AddMember() {
           </div>
           <div className="form-box-r">
             <input
-              type="file"
-              className="fileinput"
-              accept=".png , .jpeg , .jpg"
-              onChange={(e) => setFile(e.target.files[0])}
-            />
-            <input
               type="text"
               placeholder="Name"
               onChange={(e) => setUsername(e.target.value)}
@@ -72,6 +74,11 @@ function AddMember() {
               type="number"
               placeholder="Mobile No."
               onChange={(e) => setPhone(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Address"
+              onChange={(e) => setAddress(e.target.value)}
             />
             <input
               type="email"

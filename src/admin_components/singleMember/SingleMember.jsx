@@ -24,7 +24,7 @@ function SingleMember({ member, activteMember }) {
     if (memberDate === today) {
       sendMessage();
     }
-  }, [member.lastActive ,member.isActive ]);
+  }, [member.lastActive, member.isActive]);
 
   useEffect(() => {
     const deativate = async () => {
@@ -37,12 +37,17 @@ function SingleMember({ member, activteMember }) {
     deativate();
   }, [member._id]);
 
+  const initial = member.username.split("")[0]
+  
+
   return (
     <>
       <div className={member.isActive ? "memberS" : "memberS notActive"}>
         <div className="memberDetailsS">
-          <Link to={`/admin/details/${member._id}`}>
-            <img src={member.pic} alt="member" />
+          <Link className="link" to={`/admin/details/${member._id}`}>
+            <div className="initials " >
+              <h3 className="initLetter" >{initial}</h3>
+            </div>
           </Link>
           <span>{member.username} </span>
         </div>
