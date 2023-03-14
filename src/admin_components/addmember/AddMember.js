@@ -15,17 +15,6 @@ function AddMember() {
 
   const handleRegister = async () => {
     try {
-      // const data = {
-      //   username,
-      //   address,
-      //   phone,
-      //   email,
-      //   joining,
-      //   plan,
-      //   planId,
-      // };
-      // console.log(data);
-
       await publicRequest.post("/members", {
         username,
         address,
@@ -107,6 +96,10 @@ function AddMember() {
                 <option value="gold">Gold</option>
                 <option value="platinum">Platinum</option>
                 <option value="diamond">Diamond</option>
+                <option value="silver"> Pro Silver</option>
+                <option value="gold">Pro Gold</option>
+                <option value="platinum">Pro Platinum</option>
+                <option value="diamond">Pro Diamond</option>
               </select>
             </div>
             <button onClick={handleRegister}>ADD</button>
