@@ -164,3 +164,16 @@
   background-color: rgb(178, 95, 255);
   color: white;
 }
+.proSilver {
+  background-color: silver;
+}
+.proGold {
+  background-color: rgb(231, 197, 0);
+}
+.proPlatinum {
+  background-color: rgb(0, 233, 241);
+}
+.proDiamond {
+  background-color: rgb(141, 19, 255);
+  color: white;
+}
